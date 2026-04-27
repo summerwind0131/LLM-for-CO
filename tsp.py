@@ -106,10 +106,10 @@ if hasattr(sys.stdout, "reconfigure"):
 LLM_PROVIDER = os.environ.get("LLM_PROVIDER", "deepseek").lower()
 
 # Gemini 配置
-API_KEY = os.environ.get("sk-173165f4e7c142aeb913189e62e1591c")
+API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 # DeepSeek 配置
-DEEPSEEK_API_KEY = "sk-173165f4e7c142aeb913189e62e1591c" # 针对大规模节点数量，降低测试种子数量为5 (默认30会导致机器负载过大)65f4e7c142aeb913189e62e1591c")
+DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 DEEPSEEK_BASE_URL = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
 
 
