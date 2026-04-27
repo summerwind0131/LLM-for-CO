@@ -1,0 +1,156 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 19,
+    "mode": "explore_topology",
+    "reasoning": "鉴于系统在早期阶段深度停滞且拓扑异常率达0.14，虽worst算子评分最高但exploit模式不适用，故选择评分达标的explore_topology模式以寻求结构突破。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29743,
+    "phase_drop": 2614
+  },
+  {
+    "iteration": 155,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "系统在早期阶段陷入深度停滞35步，鉴于segment算子评分0.542为当前最高且未低于0.5阈值，应通过拓扑探索模式尝试切断长边以打破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29743,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 218,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "系统处于深度停滞状态（stagnation_steps=35）且所有算子评分均远低于0.5，触发全局探索模式以通过随机扰动跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29743,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 224,
+    "stagnation": 32,
+    "mode": "explore_topology",
+    "reasoning": "系统处于深度停滞状态（stagnation_steps: 32）且 segment 算子在反馈中表现最优（avg_score: 1.5），应通过拓扑探索模式利用该算子优化异常结构以突破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29743,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 336,
+    "stagnation": 29,
+    "mode": "explore_global",
+    "reasoning": "当前所有算子平均得分均低于0.5且停滞步数高达29步，触发深度停滞判定，需通过全局探索模式引入随机扰动以强制跳出局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29649,
+    "phase_drop": 94
+  },
+  {
+    "iteration": 436,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "系统处于深度停滞状态（stagnation_steps=35）且所有算子成功率与评分均较低，需通过全局探索模式引入随机扰动以跳出局部最优陷阱。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29649,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 448,
+    "stagnation": 7,
+    "mode": "exploit",
+    "reasoning": "当前处于late-convergence阶段且停滞步数较少，结合worst算子具有最高的avg_score，应优先执行exploit模式以进行精细化微调收敛。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 29649,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 485,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "系统处于深度停滞（stagnation_steps=35）且处于收敛后期，鉴于segment算子表现显著优于其他算子（avg_score=1.0），应通过拓扑探索模式利用其效能打破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29649,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 537,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "当前处于深度停滞状态（stagnation_steps=35）且所有算子评分均远低于0.5，根据决策规则应果断切换至全局探索模式以打破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29649,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 9,
+    "mode": "exploit",
+    "reasoning": "系统处于late-convergence阶段（进度0.933），依据决策规则3应优先选择exploit模式进行精细化收敛，且当前未触发规则2所述的深度停滞条件。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 29649,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 592,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "系统在收敛后期陷入深度停滞（35步），常规微调算子失效，仅segment算子维持高分（1.0），需通过拓扑探索模式切断结构异常路径以突破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29649,
+    "phase_drop": 0
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 2,
+    "mode": "explore_global",
+    "reasoning": "Random算子avg_score最高(1.126)且success_rate(0.5)显著优于其他算子，匹配全局探索模式",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 31965,
+    "phase_drop": 5967
+  },
+  {
+    "iteration": 224,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "random算子avg_score最高但未满足深度停滞条件，worst次之且符合mid-exploitation阶段，故选择exploit。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 31021,
+    "phase_drop": 944
+  },
+  {
+    "iteration": 336,
+    "stagnation": 23,
+    "mode": "explore_global",
+    "reasoning": "深度停滞(stagnation_steps=23)且random算子avg_score最高(1.476)，表明彻底随机扰动有效，应选择全局探索模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 30804,
+    "phase_drop": 217
+  },
+  {
+    "iteration": 448,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "Late-convergence阶段且stagnation_steps=0，worst算子avg_score高(0.849)，适合精细微调避免破坏收敛，符合exploit模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 30712,
+    "phase_drop": 92
+  },
+  {
+    "iteration": 513,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞35步且随机算子表现最佳(avg_score 0.824)，此时必须跳出局部最优，匹配高分算子触发全局探索。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 30361,
+    "phase_drop": 351
+  },
+  {
+    "iteration": 560,
+    "stagnation": 10,
+    "mode": "exploit",
+    "reasoning": "late-convergence阶段，worst算子成功率与平均分均最高，适合exploit模式进行精细收敛",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 30281,
+    "phase_drop": 80
+  }
+]

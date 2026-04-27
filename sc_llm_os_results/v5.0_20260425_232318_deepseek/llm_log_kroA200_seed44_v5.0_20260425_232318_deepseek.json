@@ -1,0 +1,72 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "worst算子均分1.29且未深度停滞，random均分虽高但explore_global适用于停滞，当前early-exploration阶段优先精细微调以利用高成功率",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 32436,
+    "phase_drop": 6142
+  },
+  {
+    "iteration": 224,
+    "stagnation": 10,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score最高(1.357)且success_rate领先，尽管停滞步数未超阈值，但基于算子在当前中期的优异表现，切换至全局探索模式以利用其高潜力",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 31645,
+    "phase_drop": 791
+  },
+  {
+    "iteration": 336,
+    "stagnation": 29,
+    "mode": "explore_global",
+    "reasoning": "深度停滞(stagnation_steps=29)且random算子avg_score最高(0.774)，需全局探索打破僵局",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 30068,
+    "phase_drop": 1577
+  },
+  {
+    "iteration": 448,
+    "stagnation": 20,
+    "mode": "explore_topology",
+    "reasoning": "worst算子avg_score高达0.943，其他算子失效，且处于late-convergence阶段，应继续利用worst进行精细开发以突破停滞。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 30068,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 5,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score最高(0.857)，远胜worst(0.695)和segment(0.393)，即使在late-convergence阶段也应顺应高分算子选择explore_global模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 29835,
+    "phase_drop": 233
+  }
+]

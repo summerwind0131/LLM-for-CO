@@ -1,0 +1,86 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 5,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score最高(1.382)，且处于早期探索阶段，停滞步数少，全局探索有助于发现更优解。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 31858,
+    "phase_drop": 5015
+  },
+  {
+    "iteration": 224,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "worst算子avg_score最高(0.907)，且无深度停滞，适合精细微调",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 31593,
+    "phase_drop": 265
+  },
+  {
+    "iteration": 336,
+    "stagnation": 29,
+    "mode": "explore_topology",
+    "reasoning": "segment算子avg_score最高(0.783)，且当前深度停滞(stagnation_steps=29)，结构异常比0.13，适合通过切断交叉长边进行拓扑探索以跳出局部最优",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 31449,
+    "phase_drop": 144
+  },
+  {
+    "iteration": 448,
+    "stagnation": 1,
+    "mode": "explore_global",
+    "reasoning": "Fallback after 3 failures",
+    "is_fallback": true,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 31225,
+    "phase_drop": 224
+  },
+  {
+    "iteration": 515,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞(stagnation_steps=35), 且random算子avg_score相对最高(0.5), 符合explore_global引入彻底随机扰动的条件 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 31225,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 6,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score最高(1.001)，表明全局扰动在当前阶段更有效，故选择explore_global模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 31055,
+    "phase_drop": 170
+  }
+]

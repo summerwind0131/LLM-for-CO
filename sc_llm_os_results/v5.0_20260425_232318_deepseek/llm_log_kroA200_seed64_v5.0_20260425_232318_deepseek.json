@@ -1,0 +1,86 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 5,
+    "mode": "exploit",
+    "reasoning": "worst算子avg_score最高(1.141)，且未深度停滞，early-exploration阶段应利用其精细微调能力深耕当前区域",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 31956,
+    "phase_drop": 4890
+  },
+  {
+    "iteration": 224,
+    "stagnation": 9,
+    "mode": "explore_global",
+    "reasoning": "随机算子表现最优(success_rate=0.526, avg_score=1.105)且停滞9步，在中期开发阶段引入全局探索以跳出局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 31956,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 336,
+    "stagnation": 4,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score最高(1.078)，当前停滞步数低但全局探索收益明显，选择explore_global引入随机扰动。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 31956,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 448,
+    "stagnation": 3,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score最高(0.943)，提示全局探索仍有效，尽管处于late-convergence阶段，但优先参考算子反馈选择explore_global",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 31355,
+    "phase_drop": 601
+  },
+  {
+    "iteration": 546,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞35步，random算子avg_score最高0.595，需全局探索跳出局部最优 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 31355,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "Late-convergence phase with worst operator showing highest avg_score (1.25) and success rate (0.5), exploiting it maintains fine convergence.",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 31355,
+    "phase_drop": 0
+  }
+]

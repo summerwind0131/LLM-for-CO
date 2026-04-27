@@ -1,0 +1,156 @@
+[
+  {
+    "iteration": 84,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "当前处于早期探索阶段，尽管停滞严重但segment算子平均得分0.795远高于其他算子且成功率最高，适合拓扑探索模式以切断交叉长边。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29964,
+    "phase_drop": 1706
+  },
+  {
+    "iteration": 112,
+    "stagnation": 39,
+    "mode": "explore_topology",
+    "reasoning": "stagnation_steps=39且深度停滞，但worst算子avg_score=1.0较高，表明精细微调仍有效，选择exploit模式利用worst算子突破。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29964,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 224,
+    "stagnation": 5,
+    "mode": "exploit",
+    "reasoning": "worst算子平均得分0.688为最高，且未深度停滞，选择exploit模式偏置worst算子进行精细微调。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 29745,
+    "phase_drop": 219
+  },
+  {
+    "iteration": 257,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5且深度停滞35步，符合explore_global触发条件 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29745,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 322,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5且深度停滞(stagnation_steps=35)，应选择全局探索模式。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29745,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 336,
+    "stagnation": 40,
+    "mode": "explore_global",
+    "reasoning": "停滞深度（40步）且所有算子成功率低，但random算子的avg_score最高（0.625），故选择全局探索以突破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29745,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 395,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5且停滞深度达35步，规则2要求果断选择全局探索。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29745,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 448,
+    "stagnation": 32,
+    "mode": "explore_global",
+    "reasoning": "当前处于late-convergence但深度停滞（stagnation_steps=32），所有算子avg_score均低于0.5，表明局部搜索失效，需全局探索跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29745,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 532,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "当前为late-convergence阶段，但深度停滞35步，structural_anomaly_ratio=0.15，且segment算子avg_score=0.524相对较高，适合拓扑探索切断长边以跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29745,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 14,
+    "mode": "explore_topology",
+    "reasoning": "搜索处于late-convergence阶段，停滞步数14但未深度停滞，所有算子分数偏低，根据规则优先选择exploit以保持精细收敛。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 29745,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 596,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "进度99.3%处于晚收敛阶段，虽深度停滞但worst算子平均分0.5相对最高，规则3要求优先exploit以精细收敛。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29745,
+    "phase_drop": 0
+  }
+]

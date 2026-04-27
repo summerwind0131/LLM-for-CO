@@ -1,0 +1,100 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 15,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score最高(1.274)，且停滞步数已达15，早期探索阶段应加强全局扰动以跳出局部最优",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 32097,
+    "phase_drop": 5478
+  },
+  {
+    "iteration": 224,
+    "stagnation": 1,
+    "mode": "explore_global",
+    "reasoning": "Random算子avg_score最高(1.001)，表明全局扰动有效，当前停滞步数仅为1，但引入随机探索可增强搜索多样性，避免过早收敛。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 31557,
+    "phase_drop": 540
+  },
+  {
+    "iteration": 336,
+    "stagnation": 2,
+    "mode": "exploit",
+    "reasoning": "关键状态指标：worst算子avg_score最高(0.677)，且处于mid-exploitation阶段、无深度停滞，应侧重精细微调",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 31364,
+    "phase_drop": 193
+  },
+  {
+    "iteration": 444,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "深度停滞且segment算子avg_score最高(0.65)，structural_anomaly_ratio偏高，优先拓扑探索切断长边以跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 31364,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 448,
+    "stagnation": 36,
+    "mode": "explore_topology",
+    "reasoning": "搜索处于late-convergence阶段，worst算子avg_score最高(1.5)且成功率0.5，表明精细化调整仍有效，故选择exploit模式。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 31364,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 531,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "处于late-convergence阶段且worst算子avg_score最高(0.682)，优先选择exploit模式保持精细收敛。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 31364,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 10,
+    "mode": "exploit",
+    "reasoning": "处于late-convergence阶段，worst算子avg_score最高(1.0)，精细微调有利于平稳收敛。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 31364,
+    "phase_drop": 0
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 32,
+    "mode": "exploit",
+    "reasoning": "worst算子avg_score最高（0.636>0.5），且为early-exploration阶段，优先匹配exploit模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.4794,
+      "segment": 0.2603,
+      "random": 0.2603
+    },
+    "best_distance": 30255,
+    "phase_drop": 2480
+  },
+  {
+    "iteration": 224,
+    "stagnation": 31,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5且停滞31步深度卡住，选择全局探索引入随机扰动。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 30010,
+    "phase_drop": 245
+  },
+  {
+    "iteration": 336,
+    "stagnation": 31,
+    "mode": "explore_topology",
+    "reasoning": "当前深度停滞(stagnation_steps=31)且结构异常比0.135较高，worst算子avg_score略高于0.5但成功率低，不适于精细开发；segment算子avg_score0.455居中，拓扑探索可切断交叉长边促进跳出局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29975,
+    "phase_drop": 35
+  },
+  {
+    "iteration": 448,
+    "stagnation": 23,
+    "mode": "explore_global",
+    "reasoning": "停滞严重(23步)且所有算子avg_score低于0.5，需要全局扰动跳出局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29796,
+    "phase_drop": 179
+  },
+  {
+    "iteration": 478,
+    "stagnation": 38,
+    "mode": "explore_topology",
+    "reasoning": "late-convergence阶段深陷停滞，但segment算子avg_score高达0.818，成功率较高，拓扑探索可能突破局部最优，故选择explore_topology。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29796,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 27,
+    "mode": "explore_global",
+    "reasoning": "停滞27步，所有算子avg_score均低于0.5，深度僵局，需全局探索打破。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29773,
+    "phase_drop": 23
+  }
+]

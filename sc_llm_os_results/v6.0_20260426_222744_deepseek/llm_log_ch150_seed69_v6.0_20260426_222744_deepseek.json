@@ -1,0 +1,100 @@
+[
+  {
+    "iteration": 183,
+    "stagnation": 35,
+    "mode": "exploit",
+    "reasoning": "worst算子avg_score最高(0.56)，尽管深度停滞但未达到全算子低分阈值，优先采用exploit模式精细微调。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.4794,
+      "segment": 0.2603,
+      "random": 0.2603
+    },
+    "best_distance": 6663,
+    "phase_drop": 216
+  },
+  {
+    "iteration": 256,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞且算子整体低效，random算子avg_score最高，选择全局探索模式引入彻底扰动。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6663,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 325,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5且停滞步数35，深度停滞，需全局探索打破僵局 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6663,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 403,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "停滞步骤达35步且所有算子平均得分均不高于0.5，局部搜索彻底失效，需全局扰动跳出深度停滞。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6663,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 454,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞35步且所有算子平均分低于0.5，亟需全局扰动跳出局部最优 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6663,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 548,
+    "stagnation": 35,
+    "mode": "exploit",
+    "reasoning": "处于late-convergence阶段，worst算子avg_score=0.517高于其他且未跌破0.5，深度停滞下仍可精细微调，符合exploit模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.4794,
+      "segment": 0.2603,
+      "random": 0.2603
+    },
+    "best_distance": 6604,
+    "phase_drop": 59
+  },
+  {
+    "iteration": 591,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞35步且所有算子avg_score均低于0.14，完全失效，必须进行全局随机扰动以跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6604,
+    "phase_drop": 0
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 0,
+    "mode": "explore_topology",
+    "reasoning": "segment算子avg_score最高(1.255)且structural_anomaly_ratio=0.145，表明拓扑异常需修正，故选择偏置segment的explore_topology模式",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 31190,
+    "phase_drop": 5895
+  },
+  {
+    "iteration": 224,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "处于mid-exploitation阶段，无深度停滞，worst算子avg_score较高(0.863)，适合继续精细微调。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 31001,
+    "phase_drop": 189
+  },
+  {
+    "iteration": 336,
+    "stagnation": 9,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score高达0.852，远超其他算子，表明全局随机扰动在当前状态最有效，应选择explore_global模式加以强化",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 30608,
+    "phase_drop": 393
+  },
+  {
+    "iteration": 428,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "在late-convergence阶段，worst算子avg_score=0.778显著高于其他，且停滞虽久但worst仍有较高成功率，故选择exploit模式进行精细微调。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 30608,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 448,
+    "stagnation": 40,
+    "mode": "explore_topology",
+    "reasoning": "深度停滞40步，segment和random算子平均分较高(0.714)，结合structural_anomaly_ratio偏高和avg_edge_length较大，优先拓扑探索以切断交叉长边，打破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 30608,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 13,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score高达0.893，显著优于其他算子，且当前停滞13步，表明全局探索仍有显著收益，故选择explore_global模式。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 30608,
+    "phase_drop": 0
+  }
+]

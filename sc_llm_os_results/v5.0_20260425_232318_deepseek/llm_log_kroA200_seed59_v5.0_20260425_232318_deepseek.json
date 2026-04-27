@@ -1,0 +1,86 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 0,
+    "mode": "explore_global",
+    "reasoning": "处于早期探索阶段，无停滞，random算子成功率和平均得分最高，适合采用全局探索模式引入彻底随机扰动以有效搜索解空间。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 33569,
+    "phase_drop": 8420
+  },
+  {
+    "iteration": 224,
+    "stagnation": 5,
+    "mode": "explore_global",
+    "reasoning": "random算子的avg_score(0.818)显著高于其他算子，符合规则1优先选择与高分算子匹配的模式，当前处于mid-exploitation阶段且未深度停滞，故采用explore_global引入有效随机扰动。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 32502,
+    "phase_drop": 1067
+  },
+  {
+    "iteration": 336,
+    "stagnation": 7,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score=1.147最高，当前停滞7步，应全局探索打破局部停滞",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 32031,
+    "phase_drop": 471
+  },
+  {
+    "iteration": 396,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞(stagnation_steps=35)且所有算子平均分数均低于0.5(最高random=0.486), 果断选择全局探索以跳出局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 31859,
+    "phase_drop": 172
+  },
+  {
+    "iteration": 448,
+    "stagnation": 11,
+    "mode": "explore_topology",
+    "reasoning": "Segment算子avg_score最高(0.688)且success_rate领先，structural_anomaly_ratio=0.115存在结构异常，故选择拓扑探索模式针对性优化。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 31859,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 8,
+    "mode": "explore_global",
+    "reasoning": "Random算子得分最高(0.966)，成功率0.448，且搜索后期停滞8步，需引入全局扰动跳出局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 31744,
+    "phase_drop": 115
+  }
+]

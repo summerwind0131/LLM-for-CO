@@ -1,0 +1,100 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 0,
+    "mode": "explore_topology",
+    "reasoning": "早期探索阶段，random算子分数最高但无深度停滞不宜全局扰动，segment算子次之且structural_anomaly_ratio为0.15，拓扑探索有助于改善结构。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 31820,
+    "phase_drop": 4943
+  },
+  {
+    "iteration": 224,
+    "stagnation": 8,
+    "mode": "exploit",
+    "reasoning": "Phase mid-exploitation with worst operator having highest avg_score (1.525), indicating fine-tuning is effective; stagnation only 8 steps, no deep stuck.",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 31213,
+    "phase_drop": 607
+  },
+  {
+    "iteration": 329,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞(stagnation_steps=35)且random算子avg_score=1.15显著高于其他，表明全局探索有效，故选择explore_global模式。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 31213,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 336,
+    "stagnation": 0,
+    "mode": "explore_topology",
+    "reasoning": "segment算子avg_score最高(1.514)且structural_anomaly_ratio=0.175偏高，适合通过拓扑探索切断交叉长边以突破局部结构约束",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 31044,
+    "phase_drop": 169
+  },
+  {
+    "iteration": 448,
+    "stagnation": 18,
+    "mode": "explore_global",
+    "reasoning": "尽管处于late-convergence阶段，但深度停滞(is_deeply_stuck=true)且random算子avg_score最高(1.222)，表明需全局探索跳出局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 30811,
+    "phase_drop": 233
+  },
+  {
+    "iteration": 528,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞35步，random算子avg_score高达0.7，其他算子表现平平，立即采用explore_global打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 30811,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 12,
+    "mode": "explore_topology",
+    "reasoning": "Late convergence phase (progress 0.933) with stagnation steps 12 (not deeply stuck); rule 3 prioritizes exploit for fine-tuning despite low operator scores. [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 30811,
+    "phase_drop": 0
+  }
+]

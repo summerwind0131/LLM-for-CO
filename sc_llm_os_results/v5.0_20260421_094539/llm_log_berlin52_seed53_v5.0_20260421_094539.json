@@ -1,0 +1,268 @@
+[
+  {
+    "iteration": 36,
+    "stagnation": 20,
+    "mode": "explore_global",
+    "reasoning": "当前处于早期探索阶段且深度停滞（stagnation_steps=20），且所有算子平均得分均低于0.5，触发全局探索规则以跳出局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7967,
+    "phase_drop": 516
+  },
+  {
+    "iteration": 72,
+    "stagnation": 17,
+    "mode": "explore_global",
+    "reasoning": "当前处于早期探索阶段且深度停滞（停滞17步），所有算子平均得分均低于0.5，需引入全局随机扰动以跳出局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7958,
+    "phase_drop": 9
+  },
+  {
+    "iteration": 108,
+    "stagnation": 10,
+    "mode": "explore_topology",
+    "reasoning": "当前处于早期探索阶段且未深度停滞，segment算子平均得分最高(0.214)且存在一定的结构异常(0.173)，因此选择拓扑探索模式以切断交叉长边。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 7958,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 144,
+    "stagnation": 12,
+    "mode": "exploit",
+    "reasoning": "当前worst算子平均得分高达0.89且系统未陷入深度停滞，根据规则优先选择开发模式以充分利用该算子的高效精细微调能力。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 7810,
+    "phase_drop": 148
+  },
+  {
+    "iteration": 180,
+    "stagnation": 11,
+    "mode": "explore_global",
+    "reasoning": "当前random算子的平均得分(0.82)显著高于其他算子，根据优先匹配高分算子的决策规则，选择explore_global模式以最大化搜索收益。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 7715,
+    "phase_drop": 95
+  },
+  {
+    "iteration": 216,
+    "stagnation": 7,
+    "mode": "explore_global",
+    "reasoning": "Fallback after 3 failures",
+    "is_fallback": true,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 246,
+    "stagnation": 37,
+    "mode": "explore_global",
+    "reasoning": "所有算子平均得分均低于0.5且系统陷入深度停滞（stagnation_steps=37），需引入彻底随机扰动跳出局部最优 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 252,
+    "stagnation": 3,
+    "mode": "explore_global",
+    "reasoning": "当前random算子的平均得分(1.0)最高且显著优于worst和segment算子，根据优先参考高分算子的规则，选择explore_global模式以利用其有效性进行全局探索。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 284,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "由于所有算子平均得分均低于0.5且系统陷入深度停滞（停滞步数达35步），果断选择全局探索模式以引入随机扰动跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 288,
+    "stagnation": 39,
+    "mode": "explore_global",
+    "reasoning": "当前系统深度停滞达39步（>15）且所有算子的成功率均为0.0（全部失效），必须果断引入彻底随机扰动以跳出局部最优陷阱。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 324,
+    "stagnation": 26,
+    "mode": "explore_global",
+    "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": true,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 360,
+    "stagnation": 22,
+    "mode": "explore_global",
+    "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": true,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 396,
+    "stagnation": 12,
+    "mode": "explore_global",
+    "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": true,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 432,
+    "stagnation": 8,
+    "mode": "explore_global",
+    "reasoning": "Fallback after 3 failures",
+    "is_fallback": true,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 462,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": true,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 468,
+    "stagnation": 1,
+    "mode": "explore_global",
+    "reasoning": "Fallback after 3 failures",
+    "is_fallback": true,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 504,
+    "stagnation": 34,
+    "mode": "explore_global",
+    "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": true,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 540,
+    "stagnation": 27,
+    "mode": "explore_global",
+    "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": true,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 576,
+    "stagnation": 23,
+    "mode": "explore_global",
+    "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": true,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7715,
+    "phase_drop": 0
+  }
+]

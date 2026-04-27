@@ -1,0 +1,268 @@
+[
+  {
+    "iteration": 36,
+    "stagnation": 18,
+    "mode": "explore_topology",
+    "reasoning": "Segment算子avg_score最高(1.191)且structural_anomaly_ratio较高(0.192)，适合拓扑探索打破深度停滞",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 8286,
+    "phase_drop": 1479
+  },
+  {
+    "iteration": 72,
+    "stagnation": 3,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score最高(0.592)且远优于其他算子，早期探索阶段应优先利用其有效扰动，选择explore_global模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 8201,
+    "phase_drop": 85
+  },
+  {
+    "iteration": 108,
+    "stagnation": 6,
+    "mode": "explore_topology",
+    "reasoning": "segment算子avg_score最高(0.697)且structural_anomaly_ratio为0.173，适合拓扑探索切断交叉长边以突破当前停滞",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 7952,
+    "phase_drop": 249
+  },
+  {
+    "iteration": 138,
+    "stagnation": 36,
+    "mode": "explore_global",
+    "reasoning": "深度停滞36步，所有算子成功率0.0且avg_score均低于0.5，需全局随机扰动跳出局部最优 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 144,
+    "stagnation": 39,
+    "mode": "explore_global",
+    "reasoning": "深度停滞39步，所有算子中仅random算子avg_score较高(1.0)，适合引入彻底随机扰动突破局部最优 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 180,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "All operators have success rate 0.0 and avg_score <0.5, stagnation_steps=35 (>15) with deep stuck, so explore_global is necessary to escape local optimum. [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 216,
+    "stagnation": 22,
+    "mode": "explore_global",
+    "reasoning": "所有算子平均得分均低于0.5且深度停滞(22步)，局部微调无效，需彻底随机扰动跳出陷阱 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 252,
+    "stagnation": 9,
+    "mode": "exploit",
+    "reasoning": "worst算子avg_score(0.333)在三种算子中相对最高，且当前处于mid-exploitation阶段，适合精细微调以推进收敛。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 284,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子平均得分均低于0.5且停滞步数高达35，深度停滞，因此选择全局探索模式引入彻底扰动。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 288,
+    "stagnation": 39,
+    "mode": "explore_topology",
+    "reasoning": "停滞39步且segment算子avg_score=1.0，切入拓扑探索以切断交叉长边。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 324,
+    "stagnation": 32,
+    "mode": "explore_global",
+    "reasoning": "All operators have near-zero success rates and stagnation is deep (32 steps), requiring global random perturbation. [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 360,
+    "stagnation": 25,
+    "mode": "explore_global",
+    "reasoning": "所有算子 avg_score 均低于0.5，且停滞步数25、is_deeply_stuck 为 true，表明陷入深度局部最优，需彻底随机扰动跳出。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 396,
+    "stagnation": 15,
+    "mode": "explore_topology",
+    "reasoning": "stagnation_steps=15未深度停滞，但所有算子平均分数均低于0.5，其中segment算子avg_score最高(0.333)，结合structural_anomaly_ratio 0.173，优先选择拓扑探索模式切断交叉长边。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 432,
+    "stagnation": 8,
+    "mode": "explore_topology",
+    "reasoning": "Late-convergence阶段但worst算子完全失效，segment算子有微弱效果(avg_score=0.15)，且structural_anomaly_ratio偏高(0.173)，适合通过切断交叉长边探索拓扑结构以打破当前局部停滞。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 468,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "All operators have avg_score < 0.5 and stagnation_steps=35 > 15, indicating deep stagnation, so explore_global is chosen. [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 504,
+    "stagnation": 22,
+    "mode": "explore_global",
+    "reasoning": "所有算子平均得分低于0.5且深度停滞22步，适用规则2选择全局探索 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 540,
+    "stagnation": 15,
+    "mode": "explore_topology",
+    "reasoning": "All operators have low scores (<0.5) but segment's avg_score (0.375) is relatively highest; structural_anomaly_ratio is elevated (0.192) and stagnation steps=15, so exploring topology to cut long crossing edges aligns with segment bias. [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 570,
+    "stagnation": 39,
+    "mode": "explore_global",
+    "reasoning": "所有算子平均分均低于0.5且深度停滞(stagnation_steps=39)，需全局探索跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 576,
+    "stagnation": 5,
+    "mode": "explore_topology",
+    "reasoning": "Segment算子平均得分最高(0.5)且structural_anomaly_ratio为0.192，表明拓扑结构调整仍有改进空间，因此选择拓扑探索模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 7952,
+    "phase_drop": 0
+  }
+]

@@ -1,0 +1,156 @@
+[
+  {
+    "iteration": 79,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子平均得分均低于0.5且深度停滞35步，早期探索阶段需要全局随机扰动打破僵局。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29889,
+    "phase_drop": 442
+  },
+  {
+    "iteration": 112,
+    "stagnation": 8,
+    "mode": "exploit",
+    "reasoning": "early-exploration阶段，structural_anomaly_ratio较高但worst算子avg_score高达1.0，表明精细微调有效，应优先开发。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 29889,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 154,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞35步，结构异常比0.145较高，random算子平均得分最高（0.714），但仍需全局扰动跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29889,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 224,
+    "stagnation": 14,
+    "mode": "explore_topology",
+    "reasoning": "worst算子avg_score最高(0.652)，当前阶段为mid-exploitation，且未深度停滞，应侧重精细微调。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 29889,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 266,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "随机算子avg_score最高(0.733)且成功率0.333，其他算子分数低；停滞35步且深度停滞，符合全局探索条件。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29889,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 335,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "segment算子avg_score最高(0.562)且structural_anomaly_ratio较高(0.14)，适合拓扑探索模式以切断交叉长边。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29889,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 336,
+    "stagnation": 36,
+    "mode": "explore_topology",
+    "reasoning": "当前处于mid-exploitation阶段，虽深度停滞但worst算子avg_score高达1.0，表明其历史改进潜力大，故选择exploit模式进行精细微调。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29889,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 408,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5（worst 0.409, segment 0.31, random 0.292），且停滞35步深度停滞，根据决策规则2应选择全局探索。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29889,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 448,
+    "stagnation": 29,
+    "mode": "explore_global",
+    "reasoning": "深度停滞29步，所有算子avg_score均低于0.5且success_rate极低（worst和segment为0），random仅0.111，表明当前局部最优难以突破；尽管处于late-convergence阶段，但精细开发已无效，应使用全局探索引入扰动。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29889,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 515,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞35步，所有算子avg_score均低于0.5，需全局探索打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29889,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 25,
+    "mode": "explore_global",
+    "reasoning": "处于晚期收敛阶段，但深度停滞25步且所有算子avg_score低于0.5，structural_anomaly_ratio较高，表明当前局部最优难以通过微调突破，因此选择全局探索。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29889,
+    "phase_drop": 0
+  }
+]

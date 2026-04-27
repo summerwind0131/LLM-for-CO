@@ -1,0 +1,86 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 33,
+    "mode": "explore_global",
+    "reasoning": "深度停滞(stagnation_steps=33)且random算子平均得分最高(1.129)，表明全局随机扰动在当前状态下最有效，故选择explore_global。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 32362,
+    "phase_drop": 6216
+  },
+  {
+    "iteration": 224,
+    "stagnation": 1,
+    "mode": "explore_global",
+    "reasoning": "random算子的avg_score（1.366）显著高于其他算子，表明当前搜索更受益于全局扰动，尽管停滞步数仅1，但高分算子指示模式应为explore_global",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 32024,
+    "phase_drop": 338
+  },
+  {
+    "iteration": 336,
+    "stagnation": 10,
+    "mode": "explore_global",
+    "reasoning": "random算子avg_score最高(0.919)，远优于segment(0.441)和worst(0.635)，且停滞步数10未深度卡住，适合采用与高分算子匹配的全局探索模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 31632,
+    "phase_drop": 392
+  },
+  {
+    "iteration": 448,
+    "stagnation": 0,
+    "mode": "explore_topology",
+    "reasoning": "segment算子avg_score最高(0.752)且无停滞，虽然处于late-convergence但拓扑调整仍高效，选择explore_topology继续强化交叉边解除。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 31185,
+    "phase_drop": 447
+  },
+  {
+    "iteration": 560,
+    "stagnation": 13,
+    "mode": "exploit",
+    "reasoning": "late-convergence阶段且worst算子avg_score较高(1.038)，适合精细微调保持收敛",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 30069,
+    "phase_drop": 1116
+  },
+  {
+    "iteration": 594,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞(stagnation_steps=35)且仅random算子avg_score(0.75)较高，其他均低于0.5，选择与高分算子匹配的explore_global模式 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 30069,
+    "phase_drop": 0
+  }
+]

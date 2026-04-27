@@ -1,0 +1,128 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 19,
+    "mode": "exploit",
+    "reasoning": "worst算子avg_score最高(0.758)且高于0.5，早期探索阶段适合精细调整，故选择exploit模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.4794,
+      "segment": 0.2603,
+      "random": 0.2603
+    },
+    "best_distance": 29743,
+    "phase_drop": 2614
+  },
+  {
+    "iteration": 142,
+    "stagnation": 40,
+    "mode": "explore_topology",
+    "reasoning": "当前处于early-exploration阶段，但深度停滞(stagnation_steps=40)，segment算子avg_score=0.556最高且structural_anomaly_ratio=0.14，适合拓扑探索模式。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29743,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 195,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "深度停滞35步，所有算子avg_score低于0.5但segment相对最高(0.429)，且structural_anomaly_ratio=0.15提示存在长边交叉，选择拓扑探索模式。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29743,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 224,
+    "stagnation": 9,
+    "mode": "explore_topology",
+    "reasoning": "拓扑异常比例0.145较高，且segment算子avg_score最高（0.6），适合拓扑探索模式",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 29743,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 304,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞35步，structural_anomaly_ratio中等(0.15)，random算子avg_score最高(0.688)且success_rate相对较好(0.312)，应偏重全局扰动以跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29743,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 336,
+    "stagnation": 6,
+    "mode": "explore_topology",
+    "reasoning": "segment算子avg_score最高(0.625)，且structural_anomaly_ratio=0.14，适合拓扑探索模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 29743,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 428,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "处于late-convergence阶段，worst算子avg_score最高（0.577），且structural_anomaly_ratio适中，优先选择exploit进行精细微调。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29743,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 448,
+    "stagnation": 28,
+    "mode": "explore_topology",
+    "reasoning": "进度0.747处于late-convergence阶段，worst算子平均分1.167最高，且高于0.5，符合exploit模式适用条件；虽然停滞严重但其他算子未全失效，故选择exploit。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 29743,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 25,
+    "mode": "explore_global",
+    "reasoning": "深度停滞25步，所有算子成功率低且avg_score均低于0.52，random相对较高（0.517），处于late-convergence阶段但需突破局部最优，故选择全局探索。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 29743,
+    "phase_drop": 0
+  }
+]

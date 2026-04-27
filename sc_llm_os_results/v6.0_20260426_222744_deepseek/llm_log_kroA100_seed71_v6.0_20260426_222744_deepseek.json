@@ -1,0 +1,72 @@
+[
+  {
+    "iteration": 121,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "segment算子avg_score最高(0.653)且structural_anomaly_ratio为0.12，表明拓扑结构调整有效，选择explore_topology模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 21522,
+    "phase_drop": 2391
+  },
+  {
+    "iteration": 250,
+    "stagnation": 35,
+    "mode": "exploit",
+    "reasoning": "worst算子avg_score最高(0.738)，且处于mid-exploitation阶段，优先精细微调以利用当前最优解。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.4794,
+      "segment": 0.2603,
+      "random": 0.2603
+    },
+    "best_distance": 21438,
+    "phase_drop": 84
+  },
+  {
+    "iteration": 342,
+    "stagnation": 35,
+    "mode": "exploit",
+    "reasoning": "尽管停滞，worst算子平均分最高(0.667)，精细化扰动仍有改进潜力，优先匹配高分模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.4794,
+      "segment": 0.2603,
+      "random": 0.2603
+    },
+    "best_distance": 21366,
+    "phase_drop": 72
+  },
+  {
+    "iteration": 514,
+    "stagnation": 35,
+    "mode": "exploit",
+    "reasoning": "处于晚期收敛阶段，worst算子平均得分高达0.915，远优于其他算子，精细微调仍有效，应持续开发避免扰动破坏收敛",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.4794,
+      "segment": 0.2603,
+      "random": 0.2603
+    },
+    "best_distance": 21305,
+    "phase_drop": 61
+  },
+  {
+    "iteration": 569,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "All operators have avg_score below 0.5 (worst=0.269, segment=0.312, random=0.062) and stagnation is severe (35 steps, deeply stuck), so explore_global is chosen to introduce radical perturbation despite late-convergence phase. [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 21305,
+    "phase_drop": 0
+  }
+]

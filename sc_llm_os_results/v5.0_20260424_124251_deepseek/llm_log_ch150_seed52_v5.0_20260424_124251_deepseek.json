@@ -1,0 +1,226 @@
+[
+  {
+    "iteration": 55,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5，且深度停滞35步，根据规则2应选择全局探索。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6966,
+    "phase_drop": 129
+  },
+  {
+    "iteration": 67,
+    "stagnation": 5,
+    "mode": "exploit",
+    "reasoning": "处于early-exploration阶段，虽structural_anomaly_ratio较高，但worst算子avg_score最高(1.45)，且未深度停滞，优先采用exploit模式发挥精细微调优势。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 6792,
+    "phase_drop": 174
+  },
+  {
+    "iteration": 106,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5且深度停滞35步，符合决策规则2，需全局扰动打破僵局 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6792,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 134,
+    "stagnation": 13,
+    "mode": "explore_topology",
+    "reasoning": "所有算子avg_score均低于0.5，但segment为0.5不算低于，且停滞步数13未达深度停滞阈值，故选择与最高分算子匹配的explore_topology模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 6782,
+    "phase_drop": 10
+  },
+  {
+    "iteration": 201,
+    "stagnation": 3,
+    "mode": "exploit",
+    "reasoning": "当前阶段为mid-exploitation，停滞步数低（3），worst算子avg_score最高（0.637），适合偏置该算子进行精细微调。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 6760,
+    "phase_drop": 22
+  },
+  {
+    "iteration": 239,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5，且严重停滞35步，根据决策规则2，应选择全局探索。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6760,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 268,
+    "stagnation": 11,
+    "mode": "explore_topology",
+    "reasoning": "progress=0.447处于中期，worst算子avg_score=0.636最高且success_rate=0.273，其他算子分数低，未深度停滞，适合exploit模式进行精细微调。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 6760,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 304,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "虽深度停滞，但worst算子avg_score达0.636，仍可有效微调；segment和random均低，故优先开发模式。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 6760,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 335,
+    "stagnation": 9,
+    "mode": "exploit",
+    "reasoning": "worst算子的avg_score最高(0.7)，当前处于mid-exploitation阶段，且停滞步数不高(9)，未深度停滞，宜采用exploit模式进行精细微调。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 6740,
+    "phase_drop": 20
+  },
+  {
+    "iteration": 365,
+    "stagnation": 36,
+    "mode": "explore_global",
+    "reasoning": "所有算子平均得分均低于0.5，且深度停滞达36步（>15），符合全局探索触发条件。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6740,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 402,
+    "stagnation": 31,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5且停滞31步，深度停滞，根据决策规则2选择全局探索以跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6740,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 453,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5且停滞严重(stagnation_steps=35)，符合explore_global决策条件，尽管处于late-convergence阶段，但全局探索更可能打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6740,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 469,
+    "stagnation": 6,
+    "mode": "exploit",
+    "reasoning": "晚期收敛阶段，worst算子avg_score最高（1.0），且停滞不严重，适合精细微调。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 6740,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 501,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "停滞严重(stagnation_steps=35)且所有算子平均分低于0.5，按规则2果断选择全局探索。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6740,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 536,
+    "stagnation": 6,
+    "mode": "exploit",
+    "reasoning": "处于late-convergence阶段，虽segment算子avg_score较高，但为保持精细收敛，优先选择exploit模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 6740,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 566,
+    "stagnation": 36,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5且深度停滞（stagnation_steps=36），random分数相对较高，需要全局探索打破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6740,
+    "phase_drop": 0
+  }
+]

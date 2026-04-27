@@ -1,0 +1,170 @@
+[
+  {
+    "iteration": 67,
+    "stagnation": 2,
+    "mode": "explore_global",
+    "reasoning": "当前处于早期探索阶段，且random算子评分（0.573）和成功率（0.238）均为最高，依据决策规则1应选择与其匹配的explore_global模式以利用其探索效率。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 6752,
+    "phase_drop": 197
+  },
+  {
+    "iteration": 130,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "系统已进入深度停滞状态（stagnation_steps=35），虽然worst算子评分略高于0.5，但其成功率极低且无法带来实际的阶段距离下降，符合全局探索的触发条件。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6752,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 134,
+    "stagnation": 36,
+    "mode": "explore_topology",
+    "reasoning": "系统处于深度停滞且segment算子评分最高（1.0），结合拓扑异常率指标，选择拓扑探索模式以通过结构化路径重组跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 6752,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 201,
+    "stagnation": 11,
+    "mode": "explore_global",
+    "reasoning": "当前搜索停滞11步且random算子在所有算子中表现最优（avg_score 0.6），依据高分算子匹配原则，应切换至全局探索模式以打破局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 6750,
+    "phase_drop": 2
+  },
+  {
+    "iteration": 237,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "系统处于深度停滞状态（stagnation_steps=35）且所有算子平均得分均低于0.5，根据决策规则需通过全局探索模式打破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6750,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 268,
+    "stagnation": 13,
+    "mode": "explore_topology",
+    "reasoning": "鉴于segment算子在当前停滞13步的状态下表现最优（avg_score 0.5），且structural_anomaly_ratio较高，应通过拓扑探索模式优化路径结构以打破局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 6737,
+    "phase_drop": 13
+  },
+  {
+    "iteration": 335,
+    "stagnation": 33,
+    "mode": "explore_topology",
+    "reasoning": "系统处于深度停滞（stagnation_steps=33）且陷入局部最优，虽然算子评分略高于0.5，但需通过explore_topology模式利用segment算子针对性处理拓扑异常以寻求突破。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 6654,
+    "phase_drop": 83
+  },
+  {
+    "iteration": 402,
+    "stagnation": 11,
+    "mode": "exploit",
+    "reasoning": "当前处于mid-exploitation阶段，worst算子以0.5的最高评分和0.227的成功率显著优于其他算子，且停滞步数(11)未达全局探索阈值，应继续执行精细微调。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 6613,
+    "phase_drop": 41
+  },
+  {
+    "iteration": 432,
+    "stagnation": 38,
+    "mode": "explore_global",
+    "reasoning": "当前所有算子评分均低于0.5且停滞步数达38步，系统处于深度陷入状态，必须通过explore_global模式引入强随机扰动以打破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6613,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 469,
+    "stagnation": 32,
+    "mode": "explore_global",
+    "reasoning": "系统处于深度停滞状态（stagnation_steps=32）且所有算子评分均远低于0.5，根据决策规则2，必须通过全局探索模式打破当前的局部最优陷阱。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6613,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 536,
+    "stagnation": 34,
+    "mode": "explore_global",
+    "reasoning": "系统处于深度停滞（stagnation_steps=34）且所有算子评分均低于0.5，尽管处于收敛后期，仍需通过全局探索打破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6613,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 589,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "尽管处于收敛后期，但系统已深度停滞35步且所有算子评分均远低于0.5，触发决策规则2，必须通过全局探索模式强制跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6613,
+    "phase_drop": 0
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "iteration": 63,
+    "stagnation": 35,
+    "mode": "exploit",
+    "reasoning": "worst算子avg_score最高(0.814)且success_rate相对最优，尽管深度停滞但worst未完全失效，应采用exploit模式精细微调",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.4794,
+      "segment": 0.2603,
+      "random": 0.2603
+    },
+    "best_distance": 21282,
+    "phase_drop": 3937
+  },
+  {
+    "iteration": 118,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子avg_score均低于0.5，深度停滞(stagnation_steps=35)，random算子完全失效，需全局探索打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 21282,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 214,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "worst算子avg_score最高(1.121)且成功率尚可，深度停滞但其他算子失效，继续利用worst精细调整 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 21282,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 294,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "深度停滞但 worst 算子 avg_score 仍有 0.586，是唯一有效算子，且 structural_anomaly_ratio 不高，因此采用 exploit 模式偏置 worst 算子进行精细微调以寻求突破。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 21282,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 349,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子平均得分均低于0.5且深度停滞(stagnation_steps=35, is_deeply_stuck=true)，全局探索是唯一可能打破僵局的选择。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 21282,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 404,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "All operators have avg_score < 0.5 and stagnation_steps=35 indicates deep stuck state, necessitating radical global exploration. [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 21282,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 480,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "处于late-convergence阶段且worst算子平均分高达0.864，精细微调仍有效，优先选择开发模式。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 21282,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 546,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "Late-convergence阶段，worst算子avg_score最高(0.652)，且其他算子分数极低，虽然深度停滞但worst仍有较高效用，应继续精细微调。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 21282,
+    "phase_drop": 0
+  }
+]

@@ -1,0 +1,5889 @@
+{
+  "instance": "ch150",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71
+  ],
+  "config": {
+    "NUM_ITERATIONS": 600,
+    "DESTRUCTION_RATIO": 0.06,
+    "USE_TWO_OPT": true,
+    "MAX_TWO_OPT_PASSES": 2,
+    "USE_ELITE_RESTART": false,
+    "LLM_TRIGGER_ONLY_ON_STAGNATION": false,
+    "ALNS_RHO": 0.5,
+    "BASE_PROBS": {
+      "worst": 0.4,
+      "segment": 0.3,
+      "random": 0.3
+    },
+    "MIN_PROB": 0.1,
+    "STAGNATION_RESET_THRESHOLD": 40
+  },
+  "data_quality": {
+    "dirty_seeds": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71
+    ],
+    "n_clean": 0,
+    "n_total": 30
+  },
+  "summary": {
+    "baseline": {
+      "mean": 6624.67,
+      "std": 48.24,
+      "min": 6556.0,
+      "max": 6808.0
+    },
+    "traditional_alns": {
+      "mean": 6636.2,
+      "std": 37.56,
+      "min": 6566.0,
+      "max": 6725.0
+    },
+    "sc_llm_os": {
+      "mean": 6633.5,
+      "std": 55.8,
+      "min": 6548.0,
+      "max": 6777.0,
+      "clean_mean": null,
+      "clean_std": null,
+      "clean_n": 0
+    }
+  },
+  "all_final_distances": {
+    "baseline": [
+      6633.0,
+      6556.0,
+      6598.0,
+      6616.0,
+      6695.0,
+      6618.0,
+      6643.0,
+      6584.0,
+      6601.0,
+      6622.0,
+      6672.0,
+      6616.0,
+      6584.0,
+      6651.0,
+      6599.0,
+      6617.0,
+      6659.0,
+      6649.0,
+      6608.0,
+      6564.0,
+      6676.0,
+      6588.0,
+      6633.0,
+      6808.0,
+      6583.0,
+      6619.0,
+      6569.0,
+      6637.0,
+      6583.0,
+      6659.0
+    ],
+    "traditional_alns": [
+      6615.0,
+      6650.0,
+      6695.0,
+      6614.0,
+      6656.0,
+      6578.0,
+      6635.0,
+      6584.0,
+      6660.0,
+      6578.0,
+      6630.0,
+      6634.0,
+      6566.0,
+      6666.0,
+      6631.0,
+      6620.0,
+      6614.0,
+      6622.0,
+      6607.0,
+      6590.0,
+      6665.0,
+      6637.0,
+      6644.0,
+      6651.0,
+      6725.0,
+      6622.0,
+      6638.0,
+      6694.0,
+      6700.0,
+      6665.0
+    ],
+    "sc_llm_os": [
+      6633.0,
+      6572.0,
+      6625.0,
+      6699.0,
+      6590.0,
+      6566.0,
+      6639.0,
+      6574.0,
+      6624.0,
+      6640.0,
+      6759.0,
+      6663.0,
+      6573.0,
+      6636.0,
+      6618.0,
+      6548.0,
+      6687.0,
+      6640.0,
+      6672.0,
+      6650.0,
+      6651.0,
+      6594.0,
+      6624.0,
+      6777.0,
+      6569.0,
+      6569.0,
+      6582.0,
+      6661.0,
+      6646.0,
+      6724.0
+    ],
+    "sc_llm_os_clean": [],
+    "sc_llm_os_dirty_seeds": [
+      42.0,
+      43.0,
+      44.0,
+      45.0,
+      46.0,
+      47.0,
+      48.0,
+      49.0,
+      50.0,
+      51.0,
+      52.0,
+      53.0,
+      54.0,
+      55.0,
+      56.0,
+      57.0,
+      58.0,
+      59.0,
+      60.0,
+      61.0,
+      62.0,
+      63.0,
+      64.0,
+      65.0,
+      66.0,
+      67.0,
+      68.0,
+      69.0,
+      70.0,
+      71.0
+    ]
+  },
+  "llm_logs": {
+    "42": [
+      {
+        "iteration": 67,
+        "stagnation": 27,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6633,
+        "phase_drop": 177
+      },
+      {
+        "iteration": 134,
+        "stagnation": 15,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 169,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 12,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 248,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 34,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 327,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 40,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 391,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 5,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 447,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 14,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 499,
+        "stagnation": 38,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 29,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6633,
+        "phase_drop": 0
+      }
+    ],
+    "43": [
+      {
+        "iteration": 67,
+        "stagnation": 2,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6752,
+        "phase_drop": 197
+      },
+      {
+        "iteration": 130,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6752,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 36,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6752,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 29,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6752,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 6,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6746,
+        "phase_drop": 6
+      },
+      {
+        "iteration": 335,
+        "stagnation": 13,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6638,
+        "phase_drop": 108
+      },
+      {
+        "iteration": 365,
+        "stagnation": 37,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6638,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 3,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6583,
+        "phase_drop": 55
+      },
+      {
+        "iteration": 469,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6572,
+        "phase_drop": 11
+      },
+      {
+        "iteration": 515,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6572,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 10,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6572,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 570,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6572,
+        "phase_drop": 0
+      }
+    ],
+    "44": [
+      {
+        "iteration": 59,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6800,
+        "phase_drop": 98
+      },
+      {
+        "iteration": 67,
+        "stagnation": 40,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6800,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 27,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6627,
+        "phase_drop": 173
+      },
+      {
+        "iteration": 164,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6627,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 12,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6625,
+        "phase_drop": 2
+      },
+      {
+        "iteration": 233,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6625,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 16,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6625,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 299,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6625,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 16,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6625,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 19,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6625,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 28,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6625,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 20,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6625,
+        "phase_drop": 0
+      }
+    ],
+    "45": [
+      {
+        "iteration": 67,
+        "stagnation": 24,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6736,
+        "phase_drop": 203
+      },
+      {
+        "iteration": 134,
+        "stagnation": 30,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6736,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 196,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6736,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 37,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6736,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 23,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6729,
+        "phase_drop": 7
+      },
+      {
+        "iteration": 298,
+        "stagnation": 38,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6729,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 14,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6729,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 377,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6729,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 8,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6729,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 438,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6729,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 13,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6727,
+        "phase_drop": 2
+      },
+      {
+        "iteration": 531,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6727,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 37,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6727,
+        "phase_drop": 0
+      }
+    ],
+    "46": [
+      {
+        "iteration": 67,
+        "stagnation": 0,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6702,
+        "phase_drop": 350
+      },
+      {
+        "iteration": 134,
+        "stagnation": 31,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6701,
+        "phase_drop": 1
+      },
+      {
+        "iteration": 201,
+        "stagnation": 5,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6691,
+        "phase_drop": 10
+      },
+      {
+        "iteration": 237,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6691,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 11,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6691,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 304,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6691,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 7,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6685,
+        "phase_drop": 6
+      },
+      {
+        "iteration": 402,
+        "stagnation": 23,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6629,
+        "phase_drop": 56
+      },
+      {
+        "iteration": 469,
+        "stagnation": 20,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6607,
+        "phase_drop": 22
+      },
+      {
+        "iteration": 536,
+        "stagnation": 16,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6590,
+        "phase_drop": 17
+      },
+      {
+        "iteration": 566,
+        "stagnation": 37,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6590,
+        "phase_drop": 0
+      }
+    ],
+    "47": [
+      {
+        "iteration": 67,
+        "stagnation": 26,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6566,
+        "phase_drop": 194
+      },
+      {
+        "iteration": 134,
+        "stagnation": 17,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 164,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 14,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 29,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 326,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 1,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 381,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 10,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 436,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 21,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 535,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 36,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 587,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6566,
+        "phase_drop": 0
+      }
+    ],
+    "48": [
+      {
+        "iteration": 67,
+        "stagnation": 31,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6639,
+        "phase_drop": 165
+      },
+      {
+        "iteration": 127,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 2,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 188,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 2,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 263,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 40,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 318,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 9,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 376,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 9,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 434,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 24,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 28,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 592,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6639,
+        "phase_drop": 0
+      }
+    ],
+    "49": [
+      {
+        "iteration": 67,
+        "stagnation": 16,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 269
+      },
+      {
+        "iteration": 97,
+        "stagnation": 40,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 24,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 164,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 24,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 255,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 8,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 298,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 20,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 399,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 38,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 466,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 515,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 1,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 573,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6574,
+        "phase_drop": 0
+      }
+    ],
+    "50": [
+      {
+        "iteration": 67,
+        "stagnation": 18,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6655,
+        "phase_drop": 227
+      },
+      {
+        "iteration": 134,
+        "stagnation": 34,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 189,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 4,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 247,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 7,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 302,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 7,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 378,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 5,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 462,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 514,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6655,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 14,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6624,
+        "phase_drop": 31
+      },
+      {
+        "iteration": 566,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6624,
+        "phase_drop": 0
+      }
+    ],
+    "51": [
+      {
+        "iteration": 63,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 366
+      },
+      {
+        "iteration": 67,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 121,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 3,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 172,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 12,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 242,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 21,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 30,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 401,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 36,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 453,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 11,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 499,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 32,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6640,
+        "phase_drop": 0
+      }
+    ],
+    "52": [
+      {
+        "iteration": 55,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6966,
+        "phase_drop": 129
+      },
+      {
+        "iteration": 67,
+        "stagnation": 5,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6792,
+        "phase_drop": 174
+      },
+      {
+        "iteration": 134,
+        "stagnation": 31,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6784,
+        "phase_drop": 8
+      },
+      {
+        "iteration": 201,
+        "stagnation": 7,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6765,
+        "phase_drop": 19
+      },
+      {
+        "iteration": 241,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6765,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 14,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6760,
+        "phase_drop": 5
+      },
+      {
+        "iteration": 298,
+        "stagnation": 38,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6760,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 21,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6760,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 33,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6760,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6760,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 533,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6760,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 38,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6760,
+        "phase_drop": 0
+      }
+    ],
+    "53": [
+      {
+        "iteration": 67,
+        "stagnation": 11,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6848,
+        "phase_drop": 266
+      },
+      {
+        "iteration": 103,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6848,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 14,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6830,
+        "phase_drop": 18
+      },
+      {
+        "iteration": 201,
+        "stagnation": 26,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6770,
+        "phase_drop": 60
+      },
+      {
+        "iteration": 268,
+        "stagnation": 29,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6768,
+        "phase_drop": 2
+      },
+      {
+        "iteration": 335,
+        "stagnation": 12,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6755,
+        "phase_drop": 13
+      },
+      {
+        "iteration": 365,
+        "stagnation": 36,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6755,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 8,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6744,
+        "phase_drop": 11
+      },
+      {
+        "iteration": 469,
+        "stagnation": 33,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6731,
+        "phase_drop": 13
+      },
+      {
+        "iteration": 520,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6731,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 5,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6730,
+        "phase_drop": 1
+      }
+    ],
+    "54": [
+      {
+        "iteration": 67,
+        "stagnation": 22,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6599,
+        "phase_drop": 252
+      },
+      {
+        "iteration": 118,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6586,
+        "phase_drop": 13
+      },
+      {
+        "iteration": 134,
+        "stagnation": 5,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6586,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 188,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6586,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 5,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6586,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 246,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6586,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 5,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6586,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 304,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6586,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 20,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6586,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 33,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6583,
+        "phase_drop": 3
+      },
+      {
+        "iteration": 453,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6583,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 8,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6583,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 499,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6583,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 32,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6583,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 582,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6583,
+        "phase_drop": 0
+      }
+    ],
+    "55": [
+      {
+        "iteration": 67,
+        "stagnation": 12,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6789,
+        "phase_drop": 459
+      },
+      {
+        "iteration": 134,
+        "stagnation": 3,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6694,
+        "phase_drop": 95
+      },
+      {
+        "iteration": 201,
+        "stagnation": 23,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6636,
+        "phase_drop": 58
+      },
+      {
+        "iteration": 268,
+        "stagnation": 23,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6636,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 26,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6636,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 396,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6636,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6636,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 26,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6636,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 524,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6636,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 1,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6636,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 576,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6636,
+        "phase_drop": 0
+      }
+    ],
+    "56": [
+      {
+        "iteration": 67,
+        "stagnation": 21,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6702,
+        "phase_drop": 355
+      },
+      {
+        "iteration": 134,
+        "stagnation": 27,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6702,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 30,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6702,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 21,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6702,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 298,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6702,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 24,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6702,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 1,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6618,
+        "phase_drop": 84
+      },
+      {
+        "iteration": 448,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6618,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 11,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6618,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 505,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6618,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 26,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6618,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 600,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6618,
+        "phase_drop": 0
+      }
+    ],
+    "57": [
+      {
+        "iteration": 67,
+        "stagnation": 0,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6959,
+        "phase_drop": 258
+      },
+      {
+        "iteration": 134,
+        "stagnation": 12,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6781,
+        "phase_drop": 178
+      },
+      {
+        "iteration": 201,
+        "stagnation": 31,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6762,
+        "phase_drop": 19
+      },
+      {
+        "iteration": 268,
+        "stagnation": 7,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6666,
+        "phase_drop": 96
+      },
+      {
+        "iteration": 335,
+        "stagnation": 31,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6624,
+        "phase_drop": 42
+      },
+      {
+        "iteration": 396,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6548,
+        "phase_drop": 76
+      },
+      {
+        "iteration": 402,
+        "stagnation": 1,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6548,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 436,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6548,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 20,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6548,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 530,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6548,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 38,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6548,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 579,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6548,
+        "phase_drop": 0
+      }
+    ],
+    "58": [
+      {
+        "iteration": 67,
+        "stagnation": 28,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6690,
+        "phase_drop": 455
+      },
+      {
+        "iteration": 134,
+        "stagnation": 15,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6690,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 164,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6690,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 24,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6690,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 22,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6690,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 31,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6690,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 31,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6690,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 465,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6690,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6690,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 15,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6687,
+        "phase_drop": 3
+      }
+    ],
+    "59": [
+      {
+        "iteration": 67,
+        "stagnation": 7,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6642,
+        "phase_drop": 177
+      },
+      {
+        "iteration": 125,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 1,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 171,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 9,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 239,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 18,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 312,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 15,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 370,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 24,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 29,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6642,
+        "phase_drop": 0
+      }
+    ],
+    "60": [
+      {
+        "iteration": 67,
+        "stagnation": 23,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6766,
+        "phase_drop": 427
+      },
+      {
+        "iteration": 134,
+        "stagnation": 3,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6741,
+        "phase_drop": 25
+      },
+      {
+        "iteration": 198,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6724,
+        "phase_drop": 17
+      },
+      {
+        "iteration": 201,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 259,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 4,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 311,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 7,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6672,
+        "phase_drop": 52
+      },
+      {
+        "iteration": 369,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6672,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 19,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6672,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 464,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6672,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 37,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6672,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 519,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6672,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 9,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6672,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 574,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6672,
+        "phase_drop": 0
+      }
+    ],
+    "61": [
+      {
+        "iteration": 67,
+        "stagnation": 29,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6650,
+        "phase_drop": 183
+      },
+      {
+        "iteration": 134,
+        "stagnation": 20,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6650,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 164,
+        "stagnation": 38,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6650,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 23,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6650,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 20,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6650,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 14,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6650,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 377,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6650,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 8,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6650,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 444,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6650,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 14,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6650,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 499,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6650,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 29,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6650,
+        "phase_drop": 0
+      }
+    ],
+    "62": [
+      {
+        "iteration": 67,
+        "stagnation": 8,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6952,
+        "phase_drop": 271
+      },
+      {
+        "iteration": 134,
+        "stagnation": 4,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6663,
+        "phase_drop": 289
+      },
+      {
+        "iteration": 171,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6663,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 19,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6663,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 6,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6657,
+        "phase_drop": 6
+      },
+      {
+        "iteration": 309,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6657,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 18,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6657,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 32,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6657,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 463,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6657,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 1,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6657,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 514,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6651,
+        "phase_drop": 6
+      },
+      {
+        "iteration": 536,
+        "stagnation": 14,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6651,
+        "phase_drop": 0
+      }
+    ],
+    "63": [
+      {
+        "iteration": 67,
+        "stagnation": 30,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6594,
+        "phase_drop": 353
+      },
+      {
+        "iteration": 131,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 177,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 7,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 250,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 13,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 31,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 391,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 6,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 440,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 18,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 23,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 594,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6594,
+        "phase_drop": 0
+      }
+    ],
+    "64": [
+      {
+        "iteration": 67,
+        "stagnation": 9,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6761,
+        "phase_drop": 358
+      },
+      {
+        "iteration": 102,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6761,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 24,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6761,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 166,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6761,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 21,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6761,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 21,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6761,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 309,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6761,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 8,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6624,
+        "phase_drop": 137
+      },
+      {
+        "iteration": 368,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6624,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 24,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6624,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 463,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6624,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 38,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6624,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 512,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6624,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 16,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6624,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 570,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6624,
+        "phase_drop": 0
+      }
+    ],
+    "65": [
+      {
+        "iteration": 67,
+        "stagnation": 5,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6962,
+        "phase_drop": 313
+      },
+      {
+        "iteration": 134,
+        "stagnation": 3,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6889,
+        "phase_drop": 73
+      },
+      {
+        "iteration": 169,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6889,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 24,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6889,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 9,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6777,
+        "phase_drop": 112
+      },
+      {
+        "iteration": 298,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6777,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 33,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6777,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 383,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6777,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 8,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6777,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 432,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6777,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 23,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6777,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 533,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6777,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 38,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6777,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 579,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6777,
+        "phase_drop": 0
+      }
+    ],
+    "66": [
+      {
+        "iteration": 67,
+        "stagnation": 14,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6667,
+        "phase_drop": 231
+      },
+      {
+        "iteration": 106,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6667,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 11,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6667,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 167,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6667,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 8,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6667,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 262,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6653,
+        "phase_drop": 14
+      },
+      {
+        "iteration": 268,
+        "stagnation": 1,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6653,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 314,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6653,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 16,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6653,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 12,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6629,
+        "phase_drop": 24
+      },
+      {
+        "iteration": 469,
+        "stagnation": 30,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6629,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 1,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6601,
+        "phase_drop": 28
+      },
+      {
+        "iteration": 575,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6569,
+        "phase_drop": 32
+      }
+    ],
+    "67": [
+      {
+        "iteration": 67,
+        "stagnation": 9,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6573,
+        "phase_drop": 192
+      },
+      {
+        "iteration": 108,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 9,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 175,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 15,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 231,
+        "stagnation": 36,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 15,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 298,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 26,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 365,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 20,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 26,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 521,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 10,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 576,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6573,
+        "phase_drop": 0
+      }
+    ],
+    "68": [
+      {
+        "iteration": 67,
+        "stagnation": 8,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6618,
+        "phase_drop": 365
+      },
+      {
+        "iteration": 112,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6588,
+        "phase_drop": 30
+      },
+      {
+        "iteration": 134,
+        "stagnation": 13,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6588,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 164,
+        "stagnation": 40,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6588,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 8,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6582,
+        "phase_drop": 6
+      },
+      {
+        "iteration": 234,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6582,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 26,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6582,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 326,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6582,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 38,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6582,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 381,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6582,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 13,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6582,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 436,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6582,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 25,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6582,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 532,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6582,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6582,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 578,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6582,
+        "phase_drop": 0
+      }
+    ],
+    "69": [
+      {
+        "iteration": 67,
+        "stagnation": 0,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6732,
+        "phase_drop": 147
+      },
+      {
+        "iteration": 134,
+        "stagnation": 26,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6679,
+        "phase_drop": 53
+      },
+      {
+        "iteration": 201,
+        "stagnation": 18,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6664,
+        "phase_drop": 15
+      },
+      {
+        "iteration": 231,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6664,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 33,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6664,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 30,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6664,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 21,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6664,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 437,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6664,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 14,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6664,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 532,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 3
+      },
+      {
+        "iteration": 536,
+        "stagnation": 39,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 575,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      }
+    ],
+    "70": [
+      {
+        "iteration": 67,
+        "stagnation": 17,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6721,
+        "phase_drop": 150
+      },
+      {
+        "iteration": 134,
+        "stagnation": 23,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 60
+      },
+      {
+        "iteration": 167,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 26,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 231,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 11,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 304,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 20,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 32,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 527,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 4,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6661,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 592,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6646,
+        "phase_drop": 15
+      }
+    ],
+    "71": [
+      {
+        "iteration": 67,
+        "stagnation": 13,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6755,
+        "phase_drop": 64
+      },
+      {
+        "iteration": 119,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6755,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 134,
+        "stagnation": 38,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6755,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 183,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6755,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 201,
+        "stagnation": 3,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6755,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 268,
+        "stagnation": 7,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6724,
+        "phase_drop": 31
+      },
+      {
+        "iteration": 320,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 335,
+        "stagnation": 7,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 387,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 402,
+        "stagnation": 4,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 457,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 469,
+        "stagnation": 4,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3039,
+          "segment": 0.2015,
+          "random": 0.4946
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 512,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 536,
+        "stagnation": 16,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      },
+      {
+        "iteration": 570,
+        "stagnation": 35,
+        "mode": "explore_global",
+        "reasoning": "Fallback after 3 failures [覆盖：整阶段零改善，禁止exploit]",
+        "is_fallback": true,
+        "weights": {
+          "worst": 0.3246,
+          "segment": 0.268,
+          "random": 0.4074
+        },
+        "best_distance": 6724,
+        "phase_drop": 0
+      }
+    ]
+  }
+}

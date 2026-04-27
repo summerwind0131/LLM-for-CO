@@ -1,0 +1,86 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "当前停滞步数仅为1，random算子虽分数最高但过早全局探索易破坏收敛；worst算子分数较高且适合早期精细调整，故选择exploit模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 33632,
+    "phase_drop": 6943
+  },
+  {
+    "iteration": 224,
+    "stagnation": 3,
+    "mode": "exploit",
+    "reasoning": "当前处于中期开发阶段，停滞轻微（stagnation_steps=3），worst算子成功率0.514且avg_score达1.086，表现优异，适合保持exploit模式进行精细收敛。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 33333,
+    "phase_drop": 299
+  },
+  {
+    "iteration": 336,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "停滞不严重(stagnation_steps=1)，worst算子成功率较高(0.479)且avg_score=1.016，当前处于mid-exploitation，适合继续精细开发",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 32590,
+    "phase_drop": 743
+  },
+  {
+    "iteration": 443,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "深度停滞且segment算子avg_score最高(0.722)，尽管处于late-convergence阶段，但worst算子表现差，优先采纳高分算子匹配的拓扑探索模式以打破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 32590,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 448,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "Late-convergence阶段且无停滞，worst算子success_rate=0.5、avg_score=1.5表现最佳，匹配exploit精细微调。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 32580,
+    "phase_drop": 10
+  },
+  {
+    "iteration": 560,
+    "stagnation": 31,
+    "mode": "explore_global",
+    "reasoning": "深度停滞（stagnation_steps=31）且随机算子avg_score最高（0.905），表明全局扰动有效，尽管处于late-convergence，必须跳出局部最优，选择explore_global。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 32335,
+    "phase_drop": 245
+  }
+]

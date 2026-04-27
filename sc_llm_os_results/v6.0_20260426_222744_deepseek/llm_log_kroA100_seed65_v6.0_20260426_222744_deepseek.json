@@ -1,0 +1,58 @@
+[
+  {
+    "iteration": 114,
+    "stagnation": 35,
+    "mode": "exploit",
+    "reasoning": "worst算子的avg_score=1.111显著高于其他算子，且success_rate=0.5，表明局部微调有效；虽然深度停滞，但优先利用高效算子进行exploit。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.4794,
+      "segment": 0.2603,
+      "random": 0.2603
+    },
+    "best_distance": 21378,
+    "phase_drop": 1131
+  },
+  {
+    "iteration": 157,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "深度停滞35步，全部算子成功率与平均分均极低（<0.12），满足规则2，须引入全局扰动以逃逸陷坑。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 21378,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 202,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "所有算子平均分低于0.5且深度停滞35步，需启用全局随机扰动以跳出局部最优 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 21378,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 370,
+    "stagnation": 35,
+    "mode": "exploit",
+    "reasoning": "尽管停滞35步，但worst算子avg_score达0.887，远优于其他算子，优先匹配该高分算子的exploit模式进行精细微调。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.4794,
+      "segment": 0.2603,
+      "random": 0.2603
+    },
+    "best_distance": 21305,
+    "phase_drop": 73
+  }
+]
