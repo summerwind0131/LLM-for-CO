@@ -101,16 +101,23 @@ if hasattr(sys.stdout, "reconfigure"):
 # 模块一：全局配置
 # =============================================================================
 
+# 尝试自动从 .env 文件加载环境变量（适用于服务器运行）
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 # ── API ───────────────────────────────────────────────────────────────────────
 # LLM 供应商选择 (可选: "gemini" 或 "deepseek")
 LLM_PROVIDER = os.environ.get("LLM_PROVIDER", "deepseek").lower()
 
 # Gemini 配置
-API_KEY = os.environ.get("GEMINI_API_KEY", "")
+API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 
 # DeepSeek 配置
-DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
-DEEPSEEK_BASE_URL = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
+DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+DEEPSEEK_BASE_URL = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com").strip()
 
 
 # ── 实验规模 ──────────────────────────────────────────────────────────────────
