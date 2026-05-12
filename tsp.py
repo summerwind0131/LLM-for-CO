@@ -121,7 +121,7 @@ DEEPSEEK_BASE_URL = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.co
 
 
 # ── 实验规模 ──────────────────────────────────────────────────────────────────
-INSTANCES  = ["ali535","d657","pr1002"]   # 多个规模用于泛化验证
+INSTANCES  = ["berlin52"]   # 多个规模用于泛化验证
 SEEDS      = list(range(42, 72))  # [EXP-13] 30 个连续的整数，验证统计显著性
 STRATEGIES = ["baseline", "traditional_alns", "sc_llm_os"]
 
@@ -523,12 +523,9 @@ def ask_llm_for_mode(meta_state_json: str) -> dict:
 - explore_topology (拓扑探索): 侧重切断路径中的交叉长边（偏置segment算子）。
                                适用：structural_anomaly_ratio较高，陷入局部最优时。
 - explore_global   (全局探索): 引入彻底随机扰动（偏置random算子）。
-                               适用：深度停滞(stagnation_steps>15)，所有算子均失效时。
+                               适用：深度停滞，所有算子均失效时。
 
-【决策规则】
-1. 优先参考 operator_feedback 中各算子的 avg_score，选择与高分算子匹配的模式。
-2. 若所有算子分数均低于0.5且停滞严重，果断选择 explore_global。
-3. 若处于 late-convergence 阶段，优先选择 exploit 保持精细收敛。
+
 
 严格返回以下JSON，不输出任何其他内容：
 {{
