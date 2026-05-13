@@ -1,0 +1,86 @@
+[
+  {
+    "iteration": 572,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "关键状态指标：当前处于深度停滞（is_deeply_stuck: true, stagnation_steps: 35），且所有算子的成功率均偏低（均低于0.312），表明现有开发与局部探索策略已失效，需彻底打破当前僵局。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6965,
+    "phase_drop": 740
+  },
+  {
+    "iteration": 641,
+    "stagnation": 35,
+    "mode": "explore_topology",
+    "reasoning": "系统已深度停滞35步且worst算子成功率为0，表明微调失效；但segment算子成功率14.3%且avg_score 0.357，同时structural_anomaly_ratio为0.173，说明拓扑异常仍存在改进空间，因此选择拓扑探索模式以切断交叉长边突破局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.4074,
+      "random": 0.268
+    },
+    "best_distance": 6965,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 750,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "搜索已深度停滞35步且phase_distance_drop为0，worst和segment算子成功率均低于0.25，表明局部优化已失效，需全局扰动打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6965,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 815,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "搜索已深度停滞35步且停滞步数阶段下降量仅为21，worst算子成功率完全归零而segment算子表现平庸，必须跳出当前局部最优，因此选择全局探索模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6944,
+    "phase_drop": 21
+  },
+  {
+    "iteration": 899,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "当前深度停滞（35步）、所有算子成功率均低于11%且处于后期收敛阶段，表明搜索已陷入局部最优，需引入彻底随机扰动以跳出死循环。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6894,
+    "phase_drop": 50
+  },
+  {
+    "iteration": 947,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "系统处于深度停滞且所有算子成功率均为零，表明局部搜索已失效，需要彻底随机扰动来打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 6894,
+    "phase_drop": 0
+  }
+]
