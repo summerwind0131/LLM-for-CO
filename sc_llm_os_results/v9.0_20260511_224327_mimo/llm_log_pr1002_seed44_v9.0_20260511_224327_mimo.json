@@ -1,0 +1,758 @@
+[
+  {
+    "iteration": 112,
+    "stagnation": 1,
+    "mode": "explore_global",
+    "reasoning": "当前处于早期探索阶段（progress=0.021），random算子表现最佳（success_rate=0.97），而segment算子完全失效（success_rate=0.0），说明搜索需通过全局随机扰动快速探索多样解空间，避免在无效的拓扑调整上浪费资源。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 289025,
+    "phase_drop": 27601
+  },
+  {
+    "iteration": 224,
+    "stagnation": 0,
+    "mode": "explore_global",
+    "reasoning": "当前处于早期探索阶段，random算子成功率高达91.8%且平均得分1.902最高，而segment算子完全失效（成功率0%），应优先利用random算子的全局探索优势快速扩大搜索空间。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 287708,
+    "phase_drop": 1317
+  },
+  {
+    "iteration": 336,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "当前处于早期探索阶段(progress=0.064)，random算子表现最优(success_rate=0.767, avg_score=1.667)，且无停滞(stagnation_steps=0)，应充分利用random算子进行全局探索以快速下降",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 283701,
+    "phase_drop": 4007
+  },
+  {
+    "iteration": 448,
+    "stagnation": 0,
+    "mode": "explore_global",
+    "reasoning": "搜索处于早期探索阶段（progress=0.086），random算子成功率高达0.909且平均得分1.864，远优于其他算子，说明当前拓扑结构仍适合全局随机扰动以快速拓宽搜索空间。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 283701,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 560,
+    "stagnation": 1,
+    "mode": "explore_global",
+    "reasoning": "系统处于早期探索阶段，随机算子成功率(0.842)和平均得分(1.702)显著优于其他算子，表明全局探索模式能高效利用当前高探索收益状态。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 283701,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 672,
+    "stagnation": 0,
+    "mode": "explore_global",
+    "reasoning": "搜索处于早期探索阶段，当前最佳解为280390，平均边长279.83且存在12.4%的结构异常；算子表现上，random算子成功率87.9%且平均得分2.036最高，segment算子成功率仅16.7%，表明随机扰动在早期更有效，应优先使用全局探索模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 280390,
+    "phase_drop": 3311
+  },
+  {
+    "iteration": 784,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "当前处于early-exploration阶段且未深度停滞，segment算子成功率极低(0.08)而random算子表现最佳(成功率0.814、得分1.712)，应优先选择成功率最高的算子继续探索",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 279620,
+    "phase_drop": 770
+  },
+  {
+    "iteration": 896,
+    "stagnation": 0,
+    "mode": "explore_topology",
+    "reasoning": "处于早期探索阶段且未停滞，segment算子成功率极低（0.182）说明拓扑结构问题突出，应优先探索拓扑以消除交叉长边。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 1008,
+    "stagnation": 3,
+    "mode": "explore_global",
+    "reasoning": "当前处于早期探索阶段(progress=0.193)，worst算子success_rate高(0.784)且avg_score最高(1.595)，random算子表现更好(success_rate=0.96, avg_score=1.96)，而segment算子success_rate仅0.226且avg_score最低(0.472)，应优先利用表现最佳的random算子进行全局探索以快速扩大搜索覆盖面。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 1120,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "当前处于early-exploration阶段且搜索平稳（stagnation_steps=0），worst算子success_rate高达0.698，表明其微调有效，应优先采用exploit模式进行精细开发。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 1232,
+    "stagnation": 0,
+    "mode": "explore_global",
+    "reasoning": "处于早期探索阶段且所有算子均表现良好（random成功率90.9%、worst成功率57.1%），结构异常率低（0.106）且未陷入停滞，优先选择随机扰动以高效探索解空间。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 1344,
+    "stagnation": 0,
+    "mode": "explore_global",
+    "reasoning": "当前处于early-exploration阶段（progress=0.258），worst算子成功率达0.684，但segment算子成功率极低（0.1）且structural_anomaly_ratio仅0.11，表明拓扑问题不突出，随机算子表现良好（成功率0.877），应优先利用表现最佳的随机算子进行全局探索以扩大搜索空间。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 1456,
+    "stagnation": 0,
+    "mode": "explore_global",
+    "reasoning": "处于早期探索阶段且所有算子表现均良好（random success_rate 0.86、worst success_rate 0.649），无停滞迹象，应继续以高效随机扰动广泛探索解空间。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 1568,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "当前处于中度开发阶段，搜索平稳下降且worst算子成功率(0.78)和random算子成功率(0.878)均表现优异，segment算子表现极差(成功率仅0.12)，因此应选择exploit模式集中资源于表现最好的算子进行精细开发。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 1680,
+    "stagnation": 0,
+    "mode": "explore_global",
+    "reasoning": "当前处于mid-exploitation阶段且未停滞，random算子以88.2%成功率和最高平均得分表现最优，worst算子成功率不足45%，应切换至全局探索模式以利用random算子的高效扰动能力。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 1792,
+    "stagnation": 3,
+    "mode": "exploit",
+    "reasoning": "当前处于mid-exploitation阶段且未深度停滞，worst算子成功率达53.8%且平均得分1.103表现稳定，应利用其精细微调能力继续开发，而segment算子成功率极低（8.3%）表明无需拓扑探索，random算子高使用率显示全局扰动已充分，故选择开发模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 1904,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "当前处于mid-exploitation阶段，worst算子成功率高(0.539)且使用频繁，而segment算子成功率极低(0.143)表明拓扑结构相对稳定，因此选择exploit模式进行精细微调。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 2016,
+    "stagnation": 0,
+    "mode": "explore_global",
+    "reasoning": "当前处于mid-exploitation阶段且search平稳（stagnation_steps=0），但worst算子success_rate仅0.329表现不佳，而random算子success_rate高达0.952且avg_score显著领先，表明局部微调已难以有效改善，需切换至全局探索模式以引入扰动突破当前瓶颈。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 2128,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "当前处于mid-exploitation阶段，random算子表现极佳（成功率88.5%，平均分1.787）而segment算子表现极差（成功率仅8.7%），表明搜索处于高效微调期，应充分利用random算子的高效扰动能力继续精细优化。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 2240,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "worst算子成功率最高且平均得分优秀，当前搜索处于平稳下降的中期开发阶段，应优先使用精细微调模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 2352,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "系统处于mid-exploitation阶段且未深度停滞，worst算子成功率高达60.3%，而segment算子成功率仅11.1%，表明当前应侧重精细微调而非拓扑重构，因此选择开发模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 279620,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 2464,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "搜索处于中期利用阶段且未深度停滞，worst算子成功率最高(0.528)且平均得分良好，应优先利用其微调能力继续优化",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 279413,
+    "phase_drop": 207
+  },
+  {
+    "iteration": 2576,
+    "stagnation": 4,
+    "mode": "exploit",
+    "reasoning": "当前处于mid-exploitation阶段且未深度停滞，worst算子成功率尚可(0.189)而segment完全失效(0.0)，随机算子虽成功率高(0.762)但属于探索型，因此选择精细微调的exploit模式以利用worst算子继续优化。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 278856,
+    "phase_drop": 557
+  },
+  {
+    "iteration": 2688,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "系统处于中期利用阶段且未深度停滞，worst算子成功率46.1%且使用频繁，random算子成功率虽高但使用少，segment算子表现极差，应继续利用优势算子进行精细优化。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 278064,
+    "phase_drop": 792
+  },
+  {
+    "iteration": 2800,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "当前处于mid-exploitation阶段且未深度停滞，worst算子成功率最高(0.882)且表现远优于segment算子(0.077)，说明精细开发策略有效，应优先采用exploit模式进行微调优化。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 278064,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 2912,
+    "stagnation": 1,
+    "mode": "explore_topology",
+    "reasoning": "当前处于mid-exploitation阶段且未深度停滞，但segment算子成功率极低（0.037）且structural_anomaly_ratio中等（0.12），表明存在拓扑缺陷，应选择explore_topology模式进行路径优化。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 278064,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 3024,
+    "stagnation": 3,
+    "mode": "exploit",
+    "reasoning": "worst算子success_rate高达0.806且avg_score最优（1.639），而segment算子成功率极低（0.069），表明当前搜索在局部微调上表现良好且未陷入深度停滞，应继续利用该优势进行精细开发。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 278064,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 3136,
+    "stagnation": 4,
+    "mode": "explore_global",
+    "reasoning": "搜索处于中期开发阶段且未深度停滞，但segment算子成功率极低（0.05）表明拓扑结构优化失效，而random算子表现最佳（成功率0.8），需切换至全局探索以突破当前瓶颈。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 278064,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 3248,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "当前搜索处于mid-exploitation阶段且未陷入深度停滞，worst算子成功率(0.433)显著高于segment(0.036)，适合精细微调以持续改进当前最佳解(276075)。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 276075,
+    "phase_drop": 1989
+  },
+  {
+    "iteration": 3360,
+    "stagnation": 1,
+    "mode": "exploit",
+    "reasoning": "当前处于mid-exploitation阶段且worst算子成功率高达43.4%，表明精细微调仍有效；而segment算子成功率0%且avg_score仅0.062，说明拓扑异常不严重，无需切换至拓扑探索模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 275726,
+    "phase_drop": 349
+  },
+  {
+    "iteration": 3472,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "搜索处于中期开发阶段（progress 0.666），worst算子成功率较高（0.435）且平均得分正向（0.884），表明精细微调有效，适合继续开发模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 275726,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 3533,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "搜索已陷入深度停滞（stagnation_steps=35，is_deeply_stuck=true），且segment算子成功率为0，worst算子成功率极低（0.045），只有random算子仍有效（成功率0.583），表明局部优化已失效，需彻底扰动跳出僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 275726,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 3584,
+    "stagnation": 0,
+    "mode": "explore_topology",
+    "reasoning": "当前处于中期开发阶段，但segment算子成功率极低（0%），表明路径交叉严重；worst算子成功率尚可（23.8%）但不足，需优先使用segment算子优化拓扑结构以打破局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 275712,
+    "phase_drop": 14
+  },
+  {
+    "iteration": 3696,
+    "stagnation": 3,
+    "mode": "exploit",
+    "reasoning": "当前处于后期收敛阶段且未深度停滞，segment算子成功率极低（0.058）表明拓扑扰动效率低下，而worst与random算子成功率相近（约0.69-0.71）且表现稳定，应优先选择微调开发模式以精细优化当前解。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 275583,
+    "phase_drop": 129
+  },
+  {
+    "iteration": 3808,
+    "stagnation": 2,
+    "mode": "explore_global",
+    "reasoning": "搜索处于后期收敛阶段且当前最优解已稳定，但segment算子成功率极低（0%）表明拓扑探索已失效，而worst算子成功率尚可（0.553）且随机算子表现突出（0.824成功率），故应优先利用表现最佳的随机算子进行全局扰动以跳出局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 275523,
+    "phase_drop": 60
+  },
+  {
+    "iteration": 3920,
+    "stagnation": 1,
+    "mode": "explore_global",
+    "reasoning": "当前处于后期收敛阶段，搜索已陷入停滞（stagnation_steps=1），且segment算子完全失效（success_rate=0.0），worst算子表现平平，而random算子成功率最高（0.635）且平均得分也最高，表明当前需要跳出局部最优，应选择全局探索模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 275523,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 4032,
+    "stagnation": 5,
+    "mode": "exploit",
+    "reasoning": "搜索处于后期收敛阶段且非深度停滞，worst算子成功率高达0.5远高于segment，表明精细微调仍有效，应选择开发模式。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 273921,
+    "phase_drop": 1602
+  },
+  {
+    "iteration": 4144,
+    "stagnation": 2,
+    "mode": "exploit",
+    "reasoning": "搜索已进入后期收敛阶段（progress=0.795），worst算子成功率最高（0.462）且已高频使用（78次），而segment算子完全无效（成功率0.0），表明当前应优先利用表现最好的算子进行精细微调以巩固收敛成果。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 273867,
+    "phase_drop": 54
+  },
+  {
+    "iteration": 4256,
+    "stagnation": 2,
+    "mode": "exploit",
+    "reasoning": "当前处于late-convergence阶段，worst算子成功率46.1%且平均得分0.988表现相对最优，而segment算子成功率0%完全失效，应利用有效算子继续微调；",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 272062,
+    "phase_drop": 1805
+  },
+  {
+    "iteration": 4368,
+    "stagnation": 3,
+    "mode": "explore_topology",
+    "reasoning": "处于后期收敛阶段且segment算子成功率极低（0%），表明结构异常（交叉长边）问题严重，需切换至拓扑探索模式以切断这些长边并跳出局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.4946,
+      "random": 0.2015
+    },
+    "best_distance": 271814,
+    "phase_drop": 248
+  },
+  {
+    "iteration": 4471,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "stagnation_steps=35且is_deeply_stuck=true表明深度停滞，segment算子success_rate=0完全失效，worst算子success_rate仅0.452效果不佳，所有算子均陷入失效状态，应采用全局随机扰动打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 271814,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 4480,
+    "stagnation": 26,
+    "mode": "explore_global",
+    "reasoning": "搜索已深度停滞（stagnation_steps=26，is_deeply_stuck=true），phase_distance_drop=0表明当前算子失效，而random算子成功率0.8且平均得分1.8远高于其他算子，说明随机扰动可能是打破僵局的有效手段。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 271814,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 4552,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "当前处于late-convergence阶段且is_deeply_stuck为true，stagnation_steps达35次，phase_distance_drop为0，表明深度停滞且所有算子表现均不佳（segment算子success_rate为0），因此需要引入彻底随机扰动以打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 271814,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 4592,
+    "stagnation": 0,
+    "mode": "exploit",
+    "reasoning": "progress已达0.881且处于late-convergence阶段，search正在平稳下降，worst算子success_rate最高(0.364)且avg_score优秀(1.0)，segment算子已基本失效(0.077)，random算子虽成功率尚可但avg_score偏低，应聚焦精细微调收敛至最优解。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 271182,
+    "phase_drop": 632
+  },
+  {
+    "iteration": 4704,
+    "stagnation": 4,
+    "mode": "exploit",
+    "reasoning": "当前处于late-convergence阶段且stagnation_steps为4，但segment算子成功率为0且avg_score极低，表明拓扑探索无效；worst算子成功率为0.413仍可用，因此选择exploit模式进行精细微调以突破当前停滞。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.6493,
+      "segment": 0.1754,
+      "random": 0.1754
+    },
+    "best_distance": 270697,
+    "phase_drop": 485
+  },
+  {
+    "iteration": 4816,
+    "stagnation": 13,
+    "mode": "explore_global",
+    "reasoning": "搜索进度已达0.924的晚期收敛阶段，但停滞13步且phase_distance_drop为0表明搜索已完全停滞，worst算子成功率42.1%且segment算子成功率仅0%，所有算子均失效，应启用全局探索打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 270697,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 4928,
+    "stagnation": 6,
+    "mode": "explore_global",
+    "reasoning": "当前处于late-convergence阶段（progress=0.946），但已停滞6步，segment算子成功率0%已完全失效，worst算子成功率仅10.7%表现极差，唯有random算子成功率49.2%仍有效，需通过全局扰动突破停滞。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 270606,
+    "phase_drop": 91
+  },
+  {
+    "iteration": 4984,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "reasoning": "当前处于晚期收敛阶段且深度停滞35步，phase_distance_drop为0表明搜索完全停滞，同时random算子成功率最高（0.35）而segment和worst算子表现极差，因此需要彻底随机扰动来打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 270606,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 5014,
+    "stagnation": 47,
+    "mode": "explore_global",
+    "reasoning": "搜索已深度停滞47步且progress=0.962，worst和segment算子成功率均为0，仅random算子保持46.2%成功率，表明当前解已陷入局部最优，需引入彻底随机扰动打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 270606,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 5040,
+    "stagnation": 55,
+    "mode": "explore_global",
+    "reasoning": "搜索已处于后期收敛阶段且深度停滞55步，segment算子成功率0%完全失效，worst算子成功率低（22.2%），表明常规优化已无效，必须引入彻底随机扰动打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 270606,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 5070,
+    "stagnation": 61,
+    "mode": "explore_global",
+    "reasoning": "当前处于深度停滞（stagnation_steps=61，is_deeply_stuck=true），且segment和worst算子成功率极低（0%和11.1%），而random算子表现相对较好（成功率58.3%），因此需要全局探索打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 270606,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 5100,
+    "stagnation": 85,
+    "mode": "explore_global",
+    "reasoning": "系统处于深度停滞（is_deeply_stuck=true, stagnation_steps=85）且所有算子成功率均低于0.15（segment为0），表明常规开发与拓扑探索已失效，需彻底随机扰动跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 270606,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 5130,
+    "stagnation": 106,
+    "mode": "explore_global",
+    "reasoning": "当前搜索处于晚期收敛阶段且深度停滞（stagnation_steps=106，is_deeply_stuck=true），所有算子成功率极低（worst和segment均为0%），表明现有策略完全失效，需引入彻底随机扰动打破僵局。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3246,
+      "segment": 0.268,
+      "random": 0.4074
+    },
+    "best_distance": 270606,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 5152,
+    "stagnation": 2,
+    "mode": "explore_global",
+    "reasoning": "搜索已进入后期收敛阶段（progress=0.989），当前最优解270585，worst算子成功率低（0.167），segment算子成功率极低（0.0），但random算子成功率最高（0.3）且未深度停滞，因此选择全局探索以引入随机扰动突破局部最优。",
+    "is_fallback": false,
+    "weights": {
+      "worst": 0.3039,
+      "segment": 0.2015,
+      "random": 0.4946
+    },
+    "best_distance": 270585,
+    "phase_drop": 21
+  }
+]

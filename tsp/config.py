@@ -54,7 +54,7 @@ MIMO_MODEL = os.environ.get("MIMO_MODEL", "mimo-v2.5-pro").strip()
 
 
 # ── 实验规模 ──────────────────────────────────────────────────────────────────
-INSTANCES  = ["ch150","d657","pr1002"]   # 多个规模用于泛化验证
+INSTANCES  = ["d657","pr1002"]   # 多个规模用于泛化验证
 SEEDS      = list(range(42, 72))  # [EXP-13] 30 个连续的整数，验证统计显著性
 STRATEGIES = ["baseline", "traditional_alns", "sc_llm_os"]
 
