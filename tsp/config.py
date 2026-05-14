@@ -64,7 +64,7 @@ STRATEGIES = ["baseline", "traditional_alns", "sc_llm_os"]
 DESTRUCTION_RATIO         = 0.06   # 动态破坏比例
 USE_TWO_OPT               = False   # [EXP-1] 开启局部搜索
 USE_ELITE_RESTART         = False  # [EXP-12] 精英解重启机制开关（当前停用）
-LLM_TRIGGER_ONLY_ON_STAGNATION = True  # 仅在停滞(应急)时触发 LLM 策略调控，关闭固定周期触发
+LLM_TRIGGER_ONLY_ON_STAGNATION = False  # 仅在停滞(应急)时触发 LLM 策略调控，关闭固定周期触发
 MAX_TWO_OPT_PASSES        = 2
 
 # ── 数值常数 ──────────────────────────────────────────────────────────────────
@@ -129,7 +129,7 @@ _setup_matplotlib_fonts()
 def load_cache(instance_name: str) -> dict:
     cache_path = os.path.join(
         SCRIPT_DIR,
-        f".cache_tsp_{instance_name}_opt2_{USE_TWO_OPT}_{OPERATOR_VERSION}.json",
+        f".cache_tsp_{instance_name}_opt2_{USE_TWO_OPT}_{OPERATOR_VERSION}_{LLM_TRIGGER_ONLY_ON_STAGNATION}.json",
     )
     if os.path.exists(cache_path):
         try:
