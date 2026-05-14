@@ -1,0 +1,77 @@
+[
+  {
+    "iteration": 4413,
+    "stagnation": 35,
+    "mode": "exploit",
+    "destroy_focus": "worst",
+    "repair_focus": "greedy",
+    "reasoning": "系统处于晚期收敛阶段且深度停滞35步，phase_distance_drop为46968说明仍有下降空间，worst算子success_rate高达0.732且avg_score为1.49表现优异，因此选择exploit模式配合worst+greedy精细开发剩余潜力。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.311,
+      "segment": 0.1461,
+      "random": 0.1242,
+      "shaw": 0.167,
+      "long_edge": 0.1518,
+      "multi_segment": 0.0999
+    },
+    "repair_weights": {
+      "greedy": 0.5367,
+      "farthest": 0.2,
+      "random_order": 0.1472,
+      "regret2": 0.1161
+    },
+    "best_distance": 274639,
+    "phase_drop": 46968
+  },
+  {
+    "iteration": 4443,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "random_order",
+    "reasoning": "当前进度85.3%已处后期，但stagnation_steps=35且is_deeply_stuck=true，phase_distance_drop=0，表明搜索深度停滞，应避免exploit；虽然structural_anomaly_ratio=0.098不算极高，但多数破坏算子（segment/shaw/long_edge）成功率均为0，需跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1588,
+      "segment": 0.15,
+      "random": 0.2491,
+      "shaw": 0.1654,
+      "long_edge": 0.1503,
+      "multi_segment": 0.1264
+    },
+    "repair_weights": {
+      "greedy": 0.3016,
+      "farthest": 0.2565,
+      "random_order": 0.327,
+      "regret2": 0.1149
+    },
+    "best_distance": 274639,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 4994,
+    "stagnation": 35,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "random_order",
+    "reasoning": "深度停滞35步且阶段距离仅下降6143，所有破坏算子成功率均低于0.7且segment/multi_segment极低，需强制全局扰动跳出局部最优。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1588,
+      "segment": 0.15,
+      "random": 0.2491,
+      "shaw": 0.1654,
+      "long_edge": 0.1503,
+      "multi_segment": 0.1264
+    },
+    "repair_weights": {
+      "greedy": 0.3016,
+      "farthest": 0.2565,
+      "random_order": 0.327,
+      "regret2": 0.1149
+    },
+    "best_distance": 268496,
+    "phase_drop": 6143
+  }
+]
