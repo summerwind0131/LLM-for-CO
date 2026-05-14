@@ -57,7 +57,7 @@ def calc_trigger_interval(num_cities: int, num_iterations: int, n_ops: int = 3) 
     从而保证统计可靠性不随规模下降。
 
     公式：interval = MIN_SAMPLES_PER_OP × n_ops × scale_factor
-    n_ops 默认为 3（对应 config.DESTROY_OPS 的长度），
+    n_ops 默认为 3，调用方可传入当前算子族的最大算子数，
     如 DESTROY_OPS 数量变化请通过参数传入。
     """
     MIN_SAMPLES_PER_OP = 15      # 每种算子最少样本量

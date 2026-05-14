@@ -13,7 +13,8 @@ def state_to_meta_json(
     stagnation:          int,
     route:               list,
     distances:           np.ndarray,
-    op_stats:            dict,
+    destroy_stats:       dict,
+    repair_stats:        dict,
     phase_distance_drop: float,
     best_distance:       float,
 ) -> str:
@@ -30,14 +31,16 @@ def state_to_meta_json(
     long_ratio = sum(1 for e in edges if e > avg_edge + std_edge) / n_route
 
     # 算子表现整理
-    fmt_ops = {}
-    for op, stats in op_stats.items():
-        used = stats["used"]
-        fmt_ops[op] = {
-            "used":         used,
-            "success_rate": round(stats["improved"] / used, 3) if used > 0 else 0.0,
-            "avg_score":    round(stats["score"]    / used, 3) if used > 0 else 0.0,
-        }
+    def _format_stats(stats_map: dict) -> dict:
+        fmt_ops = {}
+        for op, stats in stats_map.items():
+            used = stats["used"]
+            fmt_ops[op] = {
+                "used":         used,
+                "success_rate": round(stats["improved"] / used, 3) if used > 0 else 0.0,
+                "avg_score":    round(stats["score"]    / used, 3) if used > 0 else 0.0,
+            }
+        return fmt_ops
 
     # 搜索阶段语义标签
     progress = current_iter / num_iterations
@@ -60,6 +63,9 @@ def state_to_meta_json(
             "phase_distance_drop": round(phase_distance_drop, 2),
             "current_best":        round(best_distance, 2),
         },
-        "operator_feedback": fmt_ops,
+        "operator_feedback": {
+            "destroy": _format_stats(destroy_stats),
+            "repair":  _format_stats(repair_stats),
+        },
     }
     return json.dumps(meta, indent=2, ensure_ascii=False)

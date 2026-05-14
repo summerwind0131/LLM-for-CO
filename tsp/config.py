@@ -54,7 +54,7 @@ MIMO_MODEL = os.environ.get("MIMO_MODEL", "mimo-v2.5-pro").strip()
 
 
 # ── 实验规模 ──────────────────────────────────────────────────────────────────
-INSTANCES  = ["d657","pr1002"]   # 多个规模用于泛化验证
+INSTANCES  = ["berlin52","kroA100","ch150","kroA200","ali535","d657","pr1002"]   # 多个规模用于泛化验证
 SEEDS      = list(range(42, 72))  # [EXP-13] 30 个连续的整数，验证统计显著性
 STRATEGIES = ["baseline", "traditional_alns", "sc_llm_os"]
 
@@ -73,8 +73,25 @@ MIN_PROB = 0.1
 ALNS_RHO = 0.5
 
 # ── 固定基准概率（SC-LLM-OS偏置起点，消除累积漂移）─────────────────────────
-BASE_PROBS  = {"worst": 0.4, "segment": 0.3, "random": 0.3}
-DESTROY_OPS = ["worst", "segment", "random"]
+OPERATOR_VERSION = "ops_v2"
+
+BASE_PROBS = {
+    "worst":         0.22,
+    "segment":       0.17,
+    "random":        0.16,
+    "shaw":          0.17,
+    "long_edge":     0.18,
+    "multi_segment": 0.10,
+}
+DESTROY_OPS = list(BASE_PROBS.keys())
+
+REPAIR_BASE_PROBS = {
+    "greedy":       0.45,
+    "farthest":     0.25,
+    "random_order": 0.20,
+    "regret2":      0.10,
+}
+REPAIR_OPS = list(REPAIR_BASE_PROBS.keys())
 
 # ── 并行配置 ──────────────────────────────────────────────────────────────────
 NON_LLM_STRATEGIES   = ["baseline", "traditional_alns"]
@@ -110,7 +127,10 @@ _setup_matplotlib_fonts()
 # ── 缓存存取函数 ──────────────────────────────────────────────────────────────
 
 def load_cache(instance_name: str) -> dict:
-    cache_path = os.path.join(SCRIPT_DIR, f".cache_tsp_{instance_name}_opt2_{USE_TWO_OPT}.json")
+    cache_path = os.path.join(
+        SCRIPT_DIR,
+        f".cache_tsp_{instance_name}_opt2_{USE_TWO_OPT}_{OPERATOR_VERSION}.json",
+    )
     if os.path.exists(cache_path):
         try:
             with open(cache_path, "r", encoding="utf-8") as f:
@@ -120,6 +140,9 @@ def load_cache(instance_name: str) -> dict:
     return {}
 
 def save_cache(instance_name: str, cache_data: dict):
-    cache_path = os.path.join(SCRIPT_DIR, f".cache_tsp_{instance_name}_opt2_{USE_TWO_OPT}.json")
+    cache_path = os.path.join(
+        SCRIPT_DIR,
+        f".cache_tsp_{instance_name}_opt2_{USE_TWO_OPT}_{OPERATOR_VERSION}.json",
+    )
     with open(cache_path, "w", encoding="utf-8") as f:
         json.dump(cache_data, f, ensure_ascii=False, indent=2)

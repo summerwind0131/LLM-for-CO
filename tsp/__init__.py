@@ -25,6 +25,8 @@ from .config import (
     SEEDS,
     STRATEGIES,
     DESTRUCTION_RATIO,
+    DESTROY_OPS,
+    REPAIR_OPS,
     USE_TWO_OPT,
     USE_ELITE_RESTART,
     LLM_TRIGGER_ONLY_ON_STAGNATION,
@@ -43,7 +45,13 @@ from .operators import (
     destroy_random,
     destroy_worst,
     destroy_segment,
+    destroy_shaw,
+    destroy_long_edge,
+    destroy_multi_segment,
     repair_greedy,
+    repair_farthest,
+    repair_random_order,
+    repair_regret2,
 )
 from .state import state_to_meta_json
 from .llm_brain import ask_llm_for_mode

@@ -18,6 +18,8 @@ from .config import (
     STRATEGIES,
     NON_LLM_STRATEGIES,
     DESTRUCTION_RATIO,
+    DESTROY_OPS,
+    REPAIR_OPS,
     USE_TWO_OPT,
     USE_ELITE_RESTART,
     LLM_TRIGGER_ONLY_ON_STAGNATION,
@@ -89,7 +91,11 @@ def main():
         # 动态计算并应用触发间隔、破坏比例
         NUM_ITERATIONS = 200 + num_cities * 5
         STAGNATION_RESET_THRESHOLD = max(30, int(num_cities * 0.3))
-        llm_trigger_interval = calc_trigger_interval(num_cities, NUM_ITERATIONS)
+        llm_trigger_interval = calc_trigger_interval(
+            num_cities,
+            NUM_ITERATIONS,
+            max(len(DESTROY_OPS), len(REPAIR_OPS)),
+        )
         k_destroy = max(3, int(num_cities * DESTRUCTION_RATIO))
 
         print(f"\n{'='*60}")

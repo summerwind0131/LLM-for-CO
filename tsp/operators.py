@@ -2,8 +2,8 @@
 #  模块四：算子库
 #  - 2-opt 局部搜索
 #  - 贪心初始解构造
-#  - 破坏算子 (random / worst / segment)
-#  - 修复算子 (greedy)
+#  - 破坏算子 (random / worst / segment / shaw / long_edge / multi_segment)
+#  - 修复算子 (greedy / farthest / random_order / regret2)
 #  - 算子注册表
 # =============================================================================
 
@@ -142,7 +142,95 @@ def destroy_segment(route: list, k: int, distances=None):
     return new_rc, removed
 
 
+def destroy_shaw(route: list, k: int, distances: np.ndarray):
+    """
+    Shaw related removal：随机选一个中心节点，移除与它距离最近的一批节点。
+    适合重构局部空间簇，比纯随机更有方向感。
+    """
+    if not route:
+        return [], []
+    center = random.choice(route)
+    ordered = sorted(route, key=lambda node: distances[center][node])
+    removed = ordered[:min(k, len(route))]
+    removed_set = set(removed)
+    return [node for node in route if node not in removed_set], removed
+
+
+def destroy_long_edge(route: list, k: int, distances: np.ndarray):
+    """
+    长边端点移除：优先拆除当前路线中的异常长边两端。
+    适合路径中存在明显拓扑缺陷时使用。
+    """
+    n = len(route)
+    if n == 0:
+        return [], []
+
+    edges = []
+    for idx in range(n):
+        a = route[idx]
+        b = route[(idx + 1) % n]
+        edges.append((distances[a][b], idx))
+    edges.sort(reverse=True)
+
+    removed = []
+    selected = set()
+    for _, idx in edges:
+        for node in (route[idx], route[(idx + 1) % n]):
+            if node not in selected:
+                selected.add(node)
+                removed.append(node)
+                if len(removed) >= k:
+                    return [x for x in route if x not in selected], removed
+
+    return [x for x in route if x not in selected], removed
+
+
+def destroy_multi_segment(route: list, k: int, distances=None):
+    """
+    多片段移除：从路线不同位置切除多个短片段。
+    扰动强于单段 segment，但保留一定结构性。
+    """
+    n = len(route)
+    if n == 0:
+        return [], []
+
+    target = min(k, n)
+    n_segments = min(3, target)
+    seg_len = max(1, int(np.ceil(target / n_segments)))
+    selected_idx = set()
+
+    attempts = 0
+    while len(selected_idx) < target and attempts < n_segments * 20:
+        attempts += 1
+        start = random.randint(0, n - 1)
+        for step in range(seg_len):
+            selected_idx.add((start + step) % n)
+            if len(selected_idx) >= target:
+                break
+
+    while len(selected_idx) < target:
+        selected_idx.add(random.randint(0, n - 1))
+
+    removed = [route[i] for i in sorted(selected_idx)]
+    selected = set(removed)
+    return [node for node in route if node not in selected], removed
+
+
 # ── 修复算子 ──────────────────────────────────────────────────────────────────
+
+def _insert_min_cost(rc: list, node: int, distances: np.ndarray):
+    best_cost = 1e18
+    best_idx  = 0
+    n         = len(rc)
+    for i in range(n):
+        a    = rc[i]
+        b    = rc[(i + 1) if (i + 1) < n else 0]
+        cost = distances[a][node] + distances[node][b] - distances[a][b]
+        if cost < best_cost:
+            best_cost = cost
+            best_idx  = i + 1
+    rc.insert(best_idx if best_idx <= n else 0, node)
+    return best_cost
 
 def fallback_repair_greedy(route_arr: np.ndarray, removed_arr: np.ndarray, distances: np.ndarray) -> np.ndarray:
     rc = list(route_arr)
@@ -178,15 +266,89 @@ def repair_greedy(route: list, removed: list, distances: np.ndarray) -> list:
     return rc_arr.tolist()
 
 
+def repair_random_order(route: list, removed: list, distances: np.ndarray) -> list:
+    """
+    随机顺序贪心插入：保留廉价 greedy 插入，但增加修复阶段多样性。
+    """
+    shuffled = removed.copy()
+    random.shuffle(shuffled)
+    return repair_greedy(route, shuffled, distances)
+
+
+def repair_farthest(route: list, removed: list, distances: np.ndarray) -> list:
+    """
+    最远优先插入：先处理离当前 partial tour 最远、最难安置的节点。
+    """
+    if not removed:
+        return route.copy()
+    rc = route.copy()
+    if not rc:
+        return removed.copy()
+
+    order = sorted(
+        removed,
+        key=lambda node: min(distances[node][tour_node] for tour_node in rc),
+        reverse=True,
+    )
+    for node in order:
+        _insert_min_cost(rc, node, distances)
+    return rc
+
+
+def repair_regret2(route: list, removed: list, distances: np.ndarray) -> list:
+    """
+    Regret-2 插入：优先插入“错过最佳位置代价最高”的节点。
+    大规模实例上自动降级到 farthest，避免修复阶段过重。
+    """
+    if not removed:
+        return route.copy()
+    if len(route) + len(removed) > 500 or len(removed) > 35:
+        return repair_farthest(route, removed, distances)
+
+    rc = route.copy()
+    pending = removed.copy()
+    if not rc:
+        return pending
+
+    while pending:
+        best_choice = None
+        for node in pending:
+            costs = []
+            n = len(rc)
+            for i in range(n):
+                a = rc[i]
+                b = rc[(i + 1) if (i + 1) < n else 0]
+                cost = distances[a][node] + distances[node][b] - distances[a][b]
+                costs.append((cost, i + 1))
+            costs.sort(key=lambda x: x[0])
+            best_cost, best_idx = costs[0]
+            second_cost = costs[1][0] if len(costs) > 1 else best_cost
+            regret = second_cost - best_cost
+            key = (regret, -best_cost)
+            if best_choice is None or key > best_choice[0]:
+                best_choice = (key, node, best_idx)
+
+        _, chosen, insert_idx = best_choice
+        rc.insert(insert_idx if insert_idx <= len(rc) else 0, chosen)
+        pending.remove(chosen)
+    return rc
+
+
 # ── 算子注册表 ────────────────────────────────────────────────────────────────
 
 OPERATORS = {
     "destroy": {
-        "random":  destroy_random,
-        "worst":   destroy_worst,
-        "segment": destroy_segment,
+        "random":        destroy_random,
+        "worst":         destroy_worst,
+        "segment":       destroy_segment,
+        "shaw":          destroy_shaw,
+        "long_edge":     destroy_long_edge,
+        "multi_segment": destroy_multi_segment,
     },
     "repair": {
-        "greedy": repair_greedy,
+        "greedy":       repair_greedy,
+        "farthest":     repair_farthest,
+        "random_order": repair_random_order,
+        "regret2":      repair_regret2,
     },
 }

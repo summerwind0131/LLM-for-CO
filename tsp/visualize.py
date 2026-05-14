@@ -170,6 +170,9 @@ def plot_llm_decision_timeline(
         mode   = entry["mode"]
         reason = entry.get("reasoning", "")
         is_fb  = entry.get("is_fallback", False)
+        focus  = ""
+        if entry.get("destroy_focus") or entry.get("repair_focus"):
+            focus = f"\nD:{entry.get('destroy_focus', '-')}, R:{entry.get('repair_focus', '-')}"
 
         c  = mode_color.get(mode, "gray")
         mk = "x" if is_fb else mode_marker.get(mode, "o")
@@ -178,9 +181,9 @@ def plot_llm_decision_timeline(
                    marker=mk, s=sz, zorder=3,
                    linewidths=2.5 if is_fb else 1.0)
 
-        text = (f"[FB]\n{mode}" if is_fb
-                else (f"{mode}\n{reason[:26]}…"
-                      if len(reason) > 26 else f"{mode}\n{reason}"))
+        text = (f"[FB]\n{mode}{focus}" if is_fb
+                else (f"{mode}{focus}\n{reason[:26]}…"
+                      if len(reason) > 26 else f"{mode}{focus}\n{reason}"))
         ax.annotate(
             text,
             xy         = (it, bd),
