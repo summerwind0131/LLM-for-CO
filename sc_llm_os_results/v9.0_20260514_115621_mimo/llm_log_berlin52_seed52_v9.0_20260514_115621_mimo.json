@@ -1,0 +1,152 @@
+[
+  {
+    "iteration": 72,
+    "stagnation": 12,
+    "mode": "explore_topology",
+    "destroy_focus": "segment",
+    "repair_focus": "farthest",
+    "reasoning": "当前处于早期探索阶段（progress=0.157），但已出现轻微停滞（stagnation_steps=12）且拓扑异常比例中等（0.192），shaw和segment算子表现良好，应优先使用结构化扰动来优化路径结构。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1391,
+      "segment": 0.3267,
+      "random": 0.0965,
+      "shaw": 0.1391,
+      "long_edge": 0.2022,
+      "multi_segment": 0.0965
+    },
+    "repair_weights": {
+      "greedy": 0.3688,
+      "farthest": 0.4351,
+      "random_order": 0.0988,
+      "regret2": 0.0974
+    },
+    "best_distance": 8226,
+    "phase_drop": 1131
+  },
+  {
+    "iteration": 144,
+    "stagnation": 0,
+    "mode": "explore_topology",
+    "destroy_focus": "segment",
+    "repair_focus": "farthest",
+    "reasoning": "当前处于中期开发阶段（progress=0.313），阶段距离下降102且无停滞，但破坏算子成功率普遍偏低（仅random为0.182），修复算子成功率也低（仅farthest和random_order略高），表明需通过拓扑探索（structural_anomaly_ratio=0.192）来重构路径以突破瓶颈。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1391,
+      "segment": 0.3267,
+      "random": 0.0965,
+      "shaw": 0.1391,
+      "long_edge": 0.2022,
+      "multi_segment": 0.0965
+    },
+    "repair_weights": {
+      "greedy": 0.3688,
+      "farthest": 0.4351,
+      "random_order": 0.0988,
+      "regret2": 0.0974
+    },
+    "best_distance": 8124,
+    "phase_drop": 102
+  },
+  {
+    "iteration": 216,
+    "stagnation": 11,
+    "mode": "explore_topology",
+    "destroy_focus": "multi_segment",
+    "repair_focus": "farthest",
+    "reasoning": "stagnation_steps=11且phase_distance_drop=0表明搜索已停滞，但deeply_stuck=false，需用结构化扰动打破平衡而非完全随机探索。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1596,
+      "segment": 0.1916,
+      "random": 0.1013,
+      "shaw": 0.1596,
+      "long_edge": 0.232,
+      "multi_segment": 0.1559
+    },
+    "repair_weights": {
+      "greedy": 0.3688,
+      "farthest": 0.4351,
+      "random_order": 0.0988,
+      "regret2": 0.0974
+    },
+    "best_distance": 8124,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 288,
+    "stagnation": 17,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "farthest",
+    "reasoning": "深度停滞17步且阶段零改善，所有算子成功率极低，需跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1588,
+      "segment": 0.15,
+      "random": 0.2491,
+      "shaw": 0.1654,
+      "long_edge": 0.1503,
+      "multi_segment": 0.1264
+    },
+    "repair_weights": {
+      "greedy": 0.2996,
+      "farthest": 0.3486,
+      "random_order": 0.2375,
+      "regret2": 0.1142
+    },
+    "best_distance": 8124,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 360,
+    "stagnation": 23,
+    "mode": "explore_global",
+    "destroy_focus": "multi_segment",
+    "repair_focus": "random_order",
+    "reasoning": "系统处于后期深度停滞(stagnation_steps=23, is_deeply_stuck=true)，阶段零改善且多数算子失效，必须切换至全局探索模式以跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1622,
+      "segment": 0.1531,
+      "random": 0.1859,
+      "shaw": 0.1688,
+      "long_edge": 0.1534,
+      "multi_segment": 0.1766
+    },
+    "repair_weights": {
+      "greedy": 0.3016,
+      "farthest": 0.2565,
+      "random_order": 0.327,
+      "regret2": 0.1149
+    },
+    "best_distance": 8124,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 432,
+    "stagnation": 2,
+    "mode": "explore_topology",
+    "destroy_focus": "long_edge",
+    "repair_focus": "regret2",
+    "reasoning": "当前处于后期收敛阶段且阶段距离改善为零，但深度停滞状态未触发，同时拓扑异常比例较高(0.192)，表明路径结构问题突出，需通过拓扑探索模式进行结构重构，重点使用长边破坏算子来移除异常边端点，配合 regret2 修复算子以实现更稳健的插入。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1337,
+      "segment": 0.1604,
+      "random": 0.096,
+      "shaw": 0.1337,
+      "long_edge": 0.3803,
+      "multi_segment": 0.096
+    },
+    "repair_weights": {
+      "greedy": 0.4449,
+      "farthest": 0.2682,
+      "random_order": 0.1192,
+      "regret2": 0.1678
+    },
+    "best_distance": 8124,
+    "phase_drop": 0
+  }
+]

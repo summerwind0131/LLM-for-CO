@@ -1,0 +1,152 @@
+[
+  {
+    "iteration": 72,
+    "stagnation": 7,
+    "mode": "explore_topology",
+    "destroy_focus": "long_edge",
+    "repair_focus": "random_order",
+    "reasoning": "系统处于早期探索阶段，随机破坏算子成功率最高(0.417)且平均得分(1.18)领先，表明强扰动有效；但worst和long_edge算子成功率极低(<0.1)，说明当前解存在明显结构性缺陷，需切换至拓扑探索模式以重构路径。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1337,
+      "segment": 0.1604,
+      "random": 0.096,
+      "shaw": 0.1337,
+      "long_edge": 0.3803,
+      "multi_segment": 0.096
+    },
+    "repair_weights": {
+      "greedy": 0.4239,
+      "farthest": 0.2556,
+      "random_order": 0.2222,
+      "regret2": 0.0983
+    },
+    "best_distance": 8416,
+    "phase_drop": 1374
+  },
+  {
+    "iteration": 144,
+    "stagnation": 3,
+    "mode": "explore_topology",
+    "destroy_focus": "long_edge",
+    "repair_focus": "regret2",
+    "reasoning": "mid-exploitation阶段，long_edge算子使用次数最多但成功率最低且avg_score极低，表明长边问题严重且当前破坏方式失效，需转向结构探索以重构拓扑异常区域。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1337,
+      "segment": 0.1604,
+      "random": 0.096,
+      "shaw": 0.1337,
+      "long_edge": 0.3803,
+      "multi_segment": 0.096
+    },
+    "repair_weights": {
+      "greedy": 0.4449,
+      "farthest": 0.2682,
+      "random_order": 0.1192,
+      "regret2": 0.1678
+    },
+    "best_distance": 8317,
+    "phase_drop": 99
+  },
+  {
+    "iteration": 216,
+    "stagnation": 2,
+    "mode": "exploit",
+    "destroy_focus": "multi_segment",
+    "repair_focus": "greedy",
+    "reasoning": "mid-exploitation阶段phase_distance_drop=47且best仍在下降，multi_segment破坏成功率0.5为最高且score突出，应利用其进行局部精细改良。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.3396,
+      "segment": 0.1316,
+      "random": 0.0994,
+      "shaw": 0.1753,
+      "long_edge": 0.1428,
+      "multi_segment": 0.1113
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 8270,
+    "phase_drop": 47
+  },
+  {
+    "iteration": 288,
+    "stagnation": 14,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "farthest",
+    "reasoning": "phase_distance_drop为0、stagnation_steps为14且所有算子success_rate均为0，表明搜索已陷入局部最优停滞，需强化扰动跳出当前区域。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.139,
+      "segment": 0.1229,
+      "random": 0.3644,
+      "shaw": 0.1516,
+      "long_edge": 0.1235,
+      "multi_segment": 0.0987
+    },
+    "repair_weights": {
+      "greedy": 0.3028,
+      "farthest": 0.4188,
+      "random_order": 0.1841,
+      "regret2": 0.0944
+    },
+    "best_distance": 8270,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 360,
+    "stagnation": 26,
+    "mode": "explore_global",
+    "destroy_focus": "multi_segment",
+    "repair_focus": "random_order",
+    "reasoning": "处于后期收敛阶段且深度停滞26步、阶段改善为0，所有破坏与修复算子成功率均为0，表明已陷入局部最优陷阱，必须采用全局探索模式以强力扰动跳出。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1622,
+      "segment": 0.1531,
+      "random": 0.1859,
+      "shaw": 0.1688,
+      "long_edge": 0.1534,
+      "multi_segment": 0.1766
+    },
+    "repair_weights": {
+      "greedy": 0.3016,
+      "farthest": 0.2565,
+      "random_order": 0.327,
+      "regret2": 0.1149
+    },
+    "best_distance": 8270,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 432,
+    "stagnation": 8,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "random_order",
+    "reasoning": "phase_distance_drop=0且stagnation_steps=8表示阶段零改善、系统陷入晚期停滞，所有算子success_rate均为0表明全面失效，需要通过全局扰动跳出局部最优。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.139,
+      "segment": 0.1229,
+      "random": 0.3644,
+      "shaw": 0.1516,
+      "long_edge": 0.1235,
+      "multi_segment": 0.0987
+    },
+    "repair_weights": {
+      "greedy": 0.3126,
+      "farthest": 0.2209,
+      "random_order": 0.372,
+      "regret2": 0.0945
+    },
+    "best_distance": 8270,
+    "phase_drop": 0
+  }
+]

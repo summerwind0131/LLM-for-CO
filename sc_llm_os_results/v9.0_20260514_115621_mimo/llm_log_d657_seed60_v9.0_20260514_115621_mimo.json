@@ -1,0 +1,377 @@
+[
+  {
+    "iteration": 225,
+    "stagnation": 1,
+    "mode": "exploit",
+    "destroy_focus": "worst",
+    "repair_focus": "greedy",
+    "reasoning": "当前处于早期探索阶段，阶段距离下降7790且best仍在快速下降（53884），同时random和worst破坏算子成功率很高（0.902/0.741），表明局部改良和随机扰动均有效，适合集中开发局部最优。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.486,
+      "segment": 0.0963,
+      "random": 0.0925,
+      "shaw": 0.1283,
+      "long_edge": 0.1045,
+      "multi_segment": 0.0925
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 53884,
+    "phase_drop": 7790
+  },
+  {
+    "iteration": 450,
+    "stagnation": 1,
+    "mode": "exploit",
+    "destroy_focus": "worst",
+    "repair_focus": "greedy",
+    "reasoning": "当前处于 early-exploration 阶段，phase_distance_drop 为 561（仍在大幅下降），且 worst 和 random 破坏算子 success_rate 高（>0.6），greedy 修复算子使用最多且稳定，表明系统在有效改良，应集中资源进行局部精细开发。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.486,
+      "segment": 0.0963,
+      "random": 0.0925,
+      "shaw": 0.1283,
+      "long_edge": 0.1045,
+      "multi_segment": 0.0925
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 53323,
+    "phase_drop": 561
+  },
+  {
+    "iteration": 675,
+    "stagnation": 0,
+    "mode": "exploit",
+    "destroy_focus": "worst",
+    "repair_focus": "greedy",
+    "reasoning": "处于 early-exploration 阶段且 best 持续下降，worst 和 random 破坏算子成功率高，故选择 exploit 模式并配合稳定修复。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.486,
+      "segment": 0.0963,
+      "random": 0.0925,
+      "shaw": 0.1283,
+      "long_edge": 0.1045,
+      "multi_segment": 0.0925
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 53323,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 900,
+    "stagnation": 0,
+    "mode": "exploit",
+    "destroy_focus": "long_edge",
+    "repair_focus": "greedy",
+    "reasoning": "当前处于早期探索阶段且最优解仍在快速下降，但长边破坏算子成功率极高（80.6%）且拓扑异常比偏低，表明局部精细改良与拓扑重构均有效，应优先利用长边算子进行针对性优化。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.2975,
+      "segment": 0.1153,
+      "random": 0.0943,
+      "shaw": 0.1536,
+      "long_edge": 0.2449,
+      "multi_segment": 0.0943
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 53287,
+    "phase_drop": 36
+  },
+  {
+    "iteration": 1125,
+    "stagnation": 0,
+    "mode": "exploit",
+    "destroy_focus": "worst",
+    "repair_focus": "farthest",
+    "reasoning": "mid-exploitation阶段且best仍在下降（phase_distance_drop=345），topology正常（anomaly_ratio=0.065），worst和random破坏成功率高（>0.6），greedy修复使用最多但成功率一般，因此采用exploit模式，重点用worst破坏配合farthest修复以精细优化高成本节点。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.486,
+      "segment": 0.0963,
+      "random": 0.0925,
+      "shaw": 0.1283,
+      "long_edge": 0.1045,
+      "multi_segment": 0.0925
+    },
+    "repair_weights": {
+      "greedy": 0.5576,
+      "farthest": 0.2576,
+      "random_order": 0.0924,
+      "regret2": 0.0924
+    },
+    "best_distance": 52942,
+    "phase_drop": 345
+  },
+  {
+    "iteration": 1350,
+    "stagnation": 0,
+    "mode": "exploit",
+    "destroy_focus": "worst",
+    "repair_focus": "greedy",
+    "reasoning": "当前处于 mid-exploitation 阶段且 best 仍在下降，worst 和 long_edge 破坏算子表现良好，同时 greedy 修复算子成功率稳定，适合继续局部精细开发。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.486,
+      "segment": 0.0963,
+      "random": 0.0925,
+      "shaw": 0.1283,
+      "long_edge": 0.1045,
+      "multi_segment": 0.0925
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 52942,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 1575,
+    "stagnation": 0,
+    "mode": "exploit",
+    "destroy_focus": "random",
+    "repair_focus": "random_order",
+    "reasoning": "mid-exploitation阶段best仍在改善，worst破坏算子成功率最高且random算子虽用次少但成功率突出，同时随机修复算子表现优异，适合在局部开发基础上引入多样性扰动。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.3161,
+      "segment": 0.1225,
+      "random": 0.1695,
+      "shaw": 0.1632,
+      "long_edge": 0.133,
+      "multi_segment": 0.0957
+    },
+    "repair_weights": {
+      "greedy": 0.6133,
+      "farthest": 0.1448,
+      "random_order": 0.1469,
+      "regret2": 0.095
+    },
+    "best_distance": 52942,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 1800,
+    "stagnation": 0,
+    "mode": "exploit",
+    "destroy_focus": "worst",
+    "repair_focus": "greedy",
+    "reasoning": "mid-exploitation阶段，worst和random破坏算子成功率高（63.2%/88.4%），greedy修复成功率47.8%且阶段距离下降230，说明局部改良仍有效，应优先开发。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.486,
+      "segment": 0.0963,
+      "random": 0.0925,
+      "shaw": 0.1283,
+      "long_edge": 0.1045,
+      "multi_segment": 0.0925
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 52712,
+    "phase_drop": 230
+  },
+  {
+    "iteration": 2025,
+    "stagnation": 3,
+    "mode": "exploit",
+    "destroy_focus": "worst",
+    "repair_focus": "greedy",
+    "reasoning": "mid-exploitation阶段且best仍在下降（phase_distance_drop=71），worst和long_edge算子表现优异（成功率>0.7），应继续开发局部改良能力。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.486,
+      "segment": 0.0963,
+      "random": 0.0925,
+      "shaw": 0.1283,
+      "long_edge": 0.1045,
+      "multi_segment": 0.0925
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 52641,
+    "phase_drop": 71
+  },
+  {
+    "iteration": 2250,
+    "stagnation": 3,
+    "mode": "explore_topology",
+    "destroy_focus": "long_edge",
+    "repair_focus": "regret2",
+    "reasoning": "当前处于 mid-exploitation 阶段且 best 仍在下降，但 phase_distance_drop 较大且 long_edge 算子成功率高达 0.769，表明拓扑结构存在长边异常，应利用此点进行局部重构。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1337,
+      "segment": 0.1604,
+      "random": 0.096,
+      "shaw": 0.1337,
+      "long_edge": 0.3803,
+      "multi_segment": 0.096
+    },
+    "repair_weights": {
+      "greedy": 0.4449,
+      "farthest": 0.2682,
+      "random_order": 0.1192,
+      "regret2": 0.1678
+    },
+    "best_distance": 52485,
+    "phase_drop": 156
+  },
+  {
+    "iteration": 2475,
+    "stagnation": 0,
+    "mode": "exploit",
+    "destroy_focus": "long_edge",
+    "repair_focus": "greedy",
+    "reasoning": "progress=0.71为后期收敛，但phase_distance_drop=0且stagnation_steps=0表明系统未深度停滞，long_edge和worst成功率高(>0.5)，random虽成功率0.88但仅用25次不可靠，应利用当前有效算子精细优化。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.2975,
+      "segment": 0.1153,
+      "random": 0.0943,
+      "shaw": 0.1536,
+      "long_edge": 0.2449,
+      "multi_segment": 0.0943
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 52485,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 2700,
+    "stagnation": 23,
+    "mode": "explore_topology",
+    "destroy_focus": "long_edge",
+    "repair_focus": "random_order",
+    "reasoning": "系统处于后期收敛阶段且深度停滞23步，phase_distance_drop高达419表明阶段内仍有下降潜力，但结构性异常比率仅0.058，长边算子成功率达0.536，因此选择拓扑探索模式以聚焦长边算子和随机修复来打破局部结构。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.16,
+      "segment": 0.1742,
+      "random": 0.1294,
+      "shaw": 0.16,
+      "long_edge": 0.2606,
+      "multi_segment": 0.1157
+    },
+    "repair_weights": {
+      "greedy": 0.3341,
+      "farthest": 0.2638,
+      "random_order": 0.2471,
+      "regret2": 0.1549
+    },
+    "best_distance": 52066,
+    "phase_drop": 419
+  },
+  {
+    "iteration": 2925,
+    "stagnation": 4,
+    "mode": "explore_topology",
+    "destroy_focus": "long_edge",
+    "repair_focus": "regret2",
+    "reasoning": "当前处于late-convergence阶段且stagnation_steps较低(4)，phase_distance_drop仍有改善，但random破坏算子成功率最高(0.718)而worst成功率低(0.49)，表明需要平衡探索与开发；选择explore_topology模式以利用拓扑信息优化结构。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1337,
+      "segment": 0.1604,
+      "random": 0.096,
+      "shaw": 0.1337,
+      "long_edge": 0.3803,
+      "multi_segment": 0.096
+    },
+    "repair_weights": {
+      "greedy": 0.4449,
+      "farthest": 0.2682,
+      "random_order": 0.1192,
+      "regret2": 0.1678
+    },
+    "best_distance": 51653,
+    "phase_drop": 413
+  },
+  {
+    "iteration": 3150,
+    "stagnation": 7,
+    "mode": "exploit",
+    "destroy_focus": "worst",
+    "repair_focus": "regret2",
+    "reasoning": "系统处于后期收敛但停滞7步且best仍在下降（phase_distance_drop=633），worst和long_edge的破坏成功率尚可（0.448和0.361），regret2修复成功率最高（0.417），应采用exploit模式聚焦有效算子进行精细改良。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.486,
+      "segment": 0.0963,
+      "random": 0.0925,
+      "shaw": 0.1283,
+      "long_edge": 0.1045,
+      "multi_segment": 0.0925
+    },
+    "repair_weights": {
+      "greedy": 0.6508,
+      "farthest": 0.1536,
+      "random_order": 0.0978,
+      "regret2": 0.0978
+    },
+    "best_distance": 51020,
+    "phase_drop": 633
+  },
+  {
+    "iteration": 3375,
+    "stagnation": 9,
+    "mode": "exploit",
+    "destroy_focus": "worst",
+    "repair_focus": "regret2",
+    "reasoning": "进度已达96.8%但阶段距离下降167且停滞9步，topological异常比0.056不低，说明局部优化空间有限且结构仍有问题，需平衡精细开发与局部重构，选择exploit模式以worst算子聚焦代价最高节点配合regret2稳定修复。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.486,
+      "segment": 0.0963,
+      "random": 0.0925,
+      "shaw": 0.1283,
+      "long_edge": 0.1045,
+      "multi_segment": 0.0925
+    },
+    "repair_weights": {
+      "greedy": 0.6508,
+      "farthest": 0.1536,
+      "random_order": 0.0978,
+      "regret2": 0.0978
+    },
+    "best_distance": 50853,
+    "phase_drop": 167
+  }
+]

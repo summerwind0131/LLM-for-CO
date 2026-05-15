@@ -1,0 +1,152 @@
+[
+  {
+    "iteration": 72,
+    "stagnation": 0,
+    "mode": "exploit",
+    "destroy_focus": "random",
+    "repair_focus": "random_order",
+    "reasoning": "当前处于早期探索阶段，距离仍有较大下降空间（phase_distance_drop=1914），但破坏算子中random和segment成功率较高，而worst和multi_segment表现较差，因此采用开发模式并重点使用表现较好的random破坏和random_order修复以平衡探索与开发。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.3161,
+      "segment": 0.1225,
+      "random": 0.1695,
+      "shaw": 0.1632,
+      "long_edge": 0.133,
+      "multi_segment": 0.0957
+    },
+    "repair_weights": {
+      "greedy": 0.6133,
+      "farthest": 0.1448,
+      "random_order": 0.1469,
+      "regret2": 0.095
+    },
+    "best_distance": 8344,
+    "phase_drop": 1914
+  },
+  {
+    "iteration": 144,
+    "stagnation": 7,
+    "mode": "exploit",
+    "destroy_focus": "shaw",
+    "repair_focus": "greedy",
+    "reasoning": "当前处于mid-exploitation阶段，phase_distance_drop仅为2且stagnation_steps仅7，best仍在改善，但破坏算子中仅shaw有正成功率，需继续开发局部潜力并引入稍强扰动。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.2881,
+      "segment": 0.1117,
+      "random": 0.0939,
+      "shaw": 0.2912,
+      "long_edge": 0.1212,
+      "multi_segment": 0.0939
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 8342,
+    "phase_drop": 2
+  },
+  {
+    "iteration": 216,
+    "stagnation": 10,
+    "mode": "explore_global",
+    "destroy_focus": "multi_segment",
+    "repair_focus": "farthest",
+    "reasoning": "phase_distance_drop=0且stagnation_steps=10表明算法停滞，structural_anomaly_ratio=0.154中等但topological_avg_edge_length=160.94较高，所有破坏算子success_rate均为0或极低，需切换至explore_global模式进行强扰动。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1562,
+      "segment": 0.1381,
+      "random": 0.2092,
+      "shaw": 0.1703,
+      "long_edge": 0.1387,
+      "multi_segment": 0.1875
+    },
+    "repair_weights": {
+      "greedy": 0.3028,
+      "farthest": 0.4188,
+      "random_order": 0.1841,
+      "regret2": 0.0944
+    },
+    "best_distance": 8342,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 288,
+    "stagnation": 22,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "farthest",
+    "reasoning": "系统已深度停滞22步且阶段零改善，所有算子成功率均为0，必须用全局探索打破僵局，random破坏和farthest修复的扰动性最强。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1588,
+      "segment": 0.15,
+      "random": 0.2491,
+      "shaw": 0.1654,
+      "long_edge": 0.1503,
+      "multi_segment": 0.1264
+    },
+    "repair_weights": {
+      "greedy": 0.2996,
+      "farthest": 0.3486,
+      "random_order": 0.2375,
+      "regret2": 0.1142
+    },
+    "best_distance": 8342,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 360,
+    "stagnation": 18,
+    "mode": "explore_global",
+    "destroy_focus": "multi_segment",
+    "repair_focus": "random_order",
+    "reasoning": "系统处于晚期收敛阶段且深度停滞（stagnation_steps=18, is_deeply_stuck=true），多数破坏和修复算子的成功率极低或为零，表明已陷入局部最优，需通过强扰动跳出；因此选择 explore_global 模式，配合能提供结构扰动的 multi_segment 破坏和提升多样性的 random_order 修复。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1622,
+      "segment": 0.1531,
+      "random": 0.1859,
+      "shaw": 0.1688,
+      "long_edge": 0.1534,
+      "multi_segment": 0.1766
+    },
+    "repair_weights": {
+      "greedy": 0.3016,
+      "farthest": 0.2565,
+      "random_order": 0.327,
+      "regret2": 0.1149
+    },
+    "best_distance": 8082,
+    "phase_drop": 260
+  },
+  {
+    "iteration": 432,
+    "stagnation": 30,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "farthest",
+    "reasoning": "当前处于后期收敛阶段且深度停滞（stagnation_steps=30，is_deeply_stuck=true），阶段零改善（phase_distance_drop=0），所有算子成功率均为0，表明系统已陷入局部最优，需要强扰动跳出。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1588,
+      "segment": 0.15,
+      "random": 0.2491,
+      "shaw": 0.1654,
+      "long_edge": 0.1503,
+      "multi_segment": 0.1264
+    },
+    "repair_weights": {
+      "greedy": 0.2996,
+      "farthest": 0.3486,
+      "random_order": 0.2375,
+      "regret2": 0.1142
+    },
+    "best_distance": 8082,
+    "phase_drop": 0
+  }
+]

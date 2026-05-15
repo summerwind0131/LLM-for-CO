@@ -1,0 +1,152 @@
+[
+  {
+    "iteration": 72,
+    "stagnation": 3,
+    "mode": "explore_topology",
+    "destroy_focus": "segment",
+    "repair_focus": "random_order",
+    "reasoning": "phase_distance_drop仍有740且segment破坏成功率最高(0.308)，但random_order修复成功率也突出(0.267)，说明局部重构有效但需增强多样性，故采用拓扑探索模式偏置segment和random_order。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1391,
+      "segment": 0.3267,
+      "random": 0.0965,
+      "shaw": 0.1391,
+      "long_edge": 0.2022,
+      "multi_segment": 0.0965
+    },
+    "repair_weights": {
+      "greedy": 0.4239,
+      "farthest": 0.2556,
+      "random_order": 0.2222,
+      "regret2": 0.0983
+    },
+    "best_distance": 8583,
+    "phase_drop": 740
+  },
+  {
+    "iteration": 144,
+    "stagnation": 7,
+    "mode": "explore_global",
+    "destroy_focus": "multi_segment",
+    "repair_focus": "random_order",
+    "reasoning": "phase_distance_drop=0且stagnation_steps=7表明搜索陷入停滞，多数算子success_rate极低，需强化扰动跳出局部最优",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1562,
+      "segment": 0.1381,
+      "random": 0.2092,
+      "shaw": 0.1703,
+      "long_edge": 0.1387,
+      "multi_segment": 0.1875
+    },
+    "repair_weights": {
+      "greedy": 0.3126,
+      "farthest": 0.2209,
+      "random_order": 0.372,
+      "regret2": 0.0945
+    },
+    "best_distance": 8583,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 216,
+    "stagnation": 16,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "farthest",
+    "reasoning": "系统深度停滞且阶段零改善，几乎所有算子成功率极低，需通过强力扰动跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1588,
+      "segment": 0.15,
+      "random": 0.2491,
+      "shaw": 0.1654,
+      "long_edge": 0.1503,
+      "multi_segment": 0.1264
+    },
+    "repair_weights": {
+      "greedy": 0.2996,
+      "farthest": 0.3486,
+      "random_order": 0.2375,
+      "regret2": 0.1142
+    },
+    "best_distance": 8583,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 288,
+    "stagnation": 25,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "farthest",
+    "reasoning": "系统已深度停滞25步且阶段距离零改善，同时多个算子成功率极低，表明当前搜索陷入局部最优，需以全局扰动跳出。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1588,
+      "segment": 0.15,
+      "random": 0.2491,
+      "shaw": 0.1654,
+      "long_edge": 0.1503,
+      "multi_segment": 0.1264
+    },
+    "repair_weights": {
+      "greedy": 0.2996,
+      "farthest": 0.3486,
+      "random_order": 0.2375,
+      "regret2": 0.1142
+    },
+    "best_distance": 8583,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 360,
+    "stagnation": 5,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "random_order",
+    "reasoning": "当前处于后期收敛阶段，所有破坏算子成功率均为零或极低，修复算子除random_order外也几乎失效，且阶段距离下降仅29，表明搜索已深度停滞，必须跳出局部最优。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.139,
+      "segment": 0.1229,
+      "random": 0.3644,
+      "shaw": 0.1516,
+      "long_edge": 0.1235,
+      "multi_segment": 0.0987
+    },
+    "repair_weights": {
+      "greedy": 0.3126,
+      "farthest": 0.2209,
+      "random_order": 0.372,
+      "regret2": 0.0945
+    },
+    "best_distance": 8554,
+    "phase_drop": 29
+  },
+  {
+    "iteration": 432,
+    "stagnation": 17,
+    "mode": "explore_global",
+    "destroy_focus": "multi_segment",
+    "repair_focus": "random_order",
+    "reasoning": "系统已深度停滞17步且处于后期收敛阶段，多个破坏算子成功率极低（尤其long_edge和multi_segment为0），必须采用强扰动跳出局部最优。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1622,
+      "segment": 0.1531,
+      "random": 0.1859,
+      "shaw": 0.1688,
+      "long_edge": 0.1534,
+      "multi_segment": 0.1766
+    },
+    "repair_weights": {
+      "greedy": 0.3016,
+      "farthest": 0.2565,
+      "random_order": 0.327,
+      "regret2": 0.1149
+    },
+    "best_distance": 8522,
+    "phase_drop": 32
+  }
+]

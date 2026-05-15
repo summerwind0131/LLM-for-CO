@@ -1,0 +1,152 @@
+[
+  {
+    "iteration": 72,
+    "stagnation": 15,
+    "mode": "explore_topology",
+    "destroy_focus": "segment",
+    "repair_focus": "regret2",
+    "reasoning": "处于早期探索阶段且平均边长较高，shaw和segment破坏算子表现较好，应采用拓扑探索模式以重构路径结构并改善长边问题。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1391,
+      "segment": 0.3267,
+      "random": 0.0965,
+      "shaw": 0.1391,
+      "long_edge": 0.2022,
+      "multi_segment": 0.0965
+    },
+    "repair_weights": {
+      "greedy": 0.4449,
+      "farthest": 0.2682,
+      "random_order": 0.1192,
+      "regret2": 0.1678
+    },
+    "best_distance": 8573,
+    "phase_drop": 925
+  },
+  {
+    "iteration": 144,
+    "stagnation": 7,
+    "mode": "exploit",
+    "destroy_focus": "shaw",
+    "repair_focus": "farthest",
+    "reasoning": "mid-exploitation阶段best仍在下降(当前8062)但stagnation_steps=7提示搜索放缓，shaw和multi_segment的success_rate(0.2)和avg_score(0.5+)显著优于其他破坏算子，farthest修复算子同样表现最佳(成功率0.207,得分0.57)，应聚焦局部区域重构以突破当前瓶颈。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.2881,
+      "segment": 0.1117,
+      "random": 0.0939,
+      "shaw": 0.2912,
+      "long_edge": 0.1212,
+      "multi_segment": 0.0939
+    },
+    "repair_weights": {
+      "greedy": 0.5576,
+      "farthest": 0.2576,
+      "random_order": 0.0924,
+      "regret2": 0.0924
+    },
+    "best_distance": 8062,
+    "phase_drop": 511
+  },
+  {
+    "iteration": 216,
+    "stagnation": 19,
+    "mode": "explore_global",
+    "destroy_focus": "multi_segment",
+    "repair_focus": "random_order",
+    "reasoning": "深度停滞19步且阶段零改善，所有算子成功率均为0，必须切换到全局探索模式并使用强扰动算子组合。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1622,
+      "segment": 0.1531,
+      "random": 0.1859,
+      "shaw": 0.1688,
+      "long_edge": 0.1534,
+      "multi_segment": 0.1766
+    },
+    "repair_weights": {
+      "greedy": 0.3016,
+      "farthest": 0.2565,
+      "random_order": 0.327,
+      "regret2": 0.1149
+    },
+    "best_distance": 8062,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 288,
+    "stagnation": 16,
+    "mode": "explore_topology",
+    "destroy_focus": "long_edge",
+    "repair_focus": "regret2",
+    "reasoning": "深度停滞且阶段距离零改善，但long_edge算子成功率显著高于其他，表明存在结构性问题而非全局失效，应以拓扑重构为主攻方向。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.16,
+      "segment": 0.1742,
+      "random": 0.1294,
+      "shaw": 0.16,
+      "long_edge": 0.2606,
+      "multi_segment": 0.1157
+    },
+    "repair_weights": {
+      "greedy": 0.3373,
+      "farthest": 0.2664,
+      "random_order": 0.1824,
+      "regret2": 0.214
+    },
+    "best_distance": 8062,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 360,
+    "stagnation": 28,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "random_order",
+    "reasoning": "系统处于后期收敛阶段且深度停滞28步，所有算子成功率为零，阶段距离无改善，需通过全局扰动跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1588,
+      "segment": 0.15,
+      "random": 0.2491,
+      "shaw": 0.1654,
+      "long_edge": 0.1503,
+      "multi_segment": 0.1264
+    },
+    "repair_weights": {
+      "greedy": 0.3016,
+      "farthest": 0.2565,
+      "random_order": 0.327,
+      "regret2": 0.1149
+    },
+    "best_distance": 8062,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 432,
+    "stagnation": 28,
+    "mode": "explore_global",
+    "destroy_focus": "long_edge",
+    "repair_focus": "regret2",
+    "reasoning": "当前处于深度停滞（stagnation_steps=28，is_deeply_stuck=true）且阶段距离无改善（phase_distance_drop=0），应选择全局探索模式跳出局部最优，同时考虑到长边算子（long_edge）是唯一有显著成功率的破坏算子，故偏置该算子以利用其优势。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1607,
+      "segment": 0.1518,
+      "random": 0.1842,
+      "shaw": 0.1673,
+      "long_edge": 0.208,
+      "multi_segment": 0.1279
+    },
+    "repair_weights": {
+      "greedy": 0.316,
+      "farthest": 0.2687,
+      "random_order": 0.2505,
+      "regret2": 0.1648
+    },
+    "best_distance": 8062,
+    "phase_drop": 0
+  }
+]

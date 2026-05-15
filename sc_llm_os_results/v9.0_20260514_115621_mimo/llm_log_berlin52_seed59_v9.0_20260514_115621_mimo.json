@@ -1,0 +1,152 @@
+[
+  {
+    "iteration": 72,
+    "stagnation": 25,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "farthest",
+    "reasoning": "系统深度停滞且多个算子失效（worst成功率0%，random成功率33%但avg_score最高），应切换至全局探索模式，通过随机破坏和远端修复实现强扰动跳出局部最优。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1588,
+      "segment": 0.15,
+      "random": 0.2491,
+      "shaw": 0.1654,
+      "long_edge": 0.1503,
+      "multi_segment": 0.1264
+    },
+    "repair_weights": {
+      "greedy": 0.2996,
+      "farthest": 0.3486,
+      "random_order": 0.2375,
+      "regret2": 0.1142
+    },
+    "best_distance": 8234,
+    "phase_drop": 1017
+  },
+  {
+    "iteration": 144,
+    "stagnation": 7,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "farthest",
+    "reasoning": "系统处于mid-exploitation阶段但phase_distance_drop=0且stagnation_steps=7，所有算子成功率均为0，表明已陷入局部最优，需切换到全局探索模式以跳出停滞。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.139,
+      "segment": 0.1229,
+      "random": 0.3644,
+      "shaw": 0.1516,
+      "long_edge": 0.1235,
+      "multi_segment": 0.0987
+    },
+    "repair_weights": {
+      "greedy": 0.3028,
+      "farthest": 0.4188,
+      "random_order": 0.1841,
+      "regret2": 0.0944
+    },
+    "best_distance": 8234,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 216,
+    "stagnation": 17,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "farthest",
+    "reasoning": "系统深度停滞17步且当前阶段改善仅26，所有破坏与修复算子成功率普遍低于12.5%，表明搜索已陷入局部最优，需执行全局探索以跳出。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1588,
+      "segment": 0.15,
+      "random": 0.2491,
+      "shaw": 0.1654,
+      "long_edge": 0.1503,
+      "multi_segment": 0.1264
+    },
+    "repair_weights": {
+      "greedy": 0.2996,
+      "farthest": 0.3486,
+      "random_order": 0.2375,
+      "regret2": 0.1142
+    },
+    "best_distance": 8208,
+    "phase_drop": 26
+  },
+  {
+    "iteration": 288,
+    "stagnation": 10,
+    "mode": "exploit",
+    "destroy_focus": "segment",
+    "repair_focus": "regret2",
+    "reasoning": "当前阶段为mid-exploitation，stagnation_steps=10但未深度停滞，phase_distance_drop=29表明仍有改善潜力，segment破坏算子成功率最高(0.167)且regret2修复算子表现最佳(0.446)，因此选择exploit模式以利用有效的局部改良算子。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.3009,
+      "segment": 0.2283,
+      "random": 0.0944,
+      "shaw": 0.1554,
+      "long_edge": 0.1266,
+      "multi_segment": 0.0944
+    },
+    "repair_weights": {
+      "greedy": 0.6508,
+      "farthest": 0.1536,
+      "random_order": 0.0978,
+      "regret2": 0.0978
+    },
+    "best_distance": 8179,
+    "phase_drop": 29
+  },
+  {
+    "iteration": 360,
+    "stagnation": 22,
+    "mode": "explore_global",
+    "destroy_focus": "multi_segment",
+    "repair_focus": "random_order",
+    "reasoning": "深度停滞22步且阶段零改善，所有算子成功率均为0%，需要强力扰动跳出局部最优。 [覆盖：整阶段零改善，禁止exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1622,
+      "segment": 0.1531,
+      "random": 0.1859,
+      "shaw": 0.1688,
+      "long_edge": 0.1534,
+      "multi_segment": 0.1766
+    },
+    "repair_weights": {
+      "greedy": 0.3016,
+      "farthest": 0.2565,
+      "random_order": 0.327,
+      "regret2": 0.1149
+    },
+    "best_distance": 8179,
+    "phase_drop": 0
+  },
+  {
+    "iteration": 432,
+    "stagnation": 3,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "random_order",
+    "reasoning": "系统处于晚期收敛阶段（progress=0.939），阶段零改善（phase_distance_drop=0）且多个破坏算子成功率极低（如worst/segment/random/shaw/long_edge均为0%），表明已陷入局部最优，需跳出探索。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.139,
+      "segment": 0.1229,
+      "random": 0.3644,
+      "shaw": 0.1516,
+      "long_edge": 0.1235,
+      "multi_segment": 0.0987
+    },
+    "repair_weights": {
+      "greedy": 0.3126,
+      "farthest": 0.2209,
+      "random_order": 0.372,
+      "regret2": 0.0945
+    },
+    "best_distance": 8179,
+    "phase_drop": 0
+  }
+]
