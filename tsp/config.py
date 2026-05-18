@@ -56,7 +56,14 @@ MIMO_MODEL = os.environ.get("MIMO_MODEL", "mimo-v2.5-pro").strip()
 # ── 实验规模 ──────────────────────────────────────────────────────────────────
 INSTANCES  = ["berlin52","kroA100","ch150","kroA200","ali535","d657","pr1002"]   # 多个规模用于泛化验证
 SEEDS      = list(range(42, 72))  # [EXP-13] 30 个连续的整数，验证统计显著性
-STRATEGIES = ["baseline", "traditional_alns", "sc_llm_os"]
+STRATEGIES = [
+    "baseline",
+    "traditional_alns",
+    "sc_rule_os",
+    "sc_random_os",
+    "sc_fallback_os",
+    "sc_llm_os",
+]
 
 # ── 算法超参数 ────────────────────────────────────────────────────────────────
 # NUM_ITERATIONS 和 STAGNATION_RESET_THRESHOLD 将在各个实例加载后动态计算
@@ -94,13 +101,14 @@ REPAIR_BASE_PROBS = {
 REPAIR_OPS = list(REPAIR_BASE_PROBS.keys())
 
 # ── 并行配置 ──────────────────────────────────────────────────────────────────
-NON_LLM_STRATEGIES   = ["baseline", "traditional_alns"]
+SC_ABLATION_STRATEGIES = ["sc_rule_os", "sc_random_os", "sc_fallback_os"]
+NON_LLM_STRATEGIES   = ["baseline", "traditional_alns"] + SC_ABLATION_STRATEGIES
 MAX_PARALLEL_WORKERS = 4
 
 # ── 输出目录 ──────────────────────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ── 运行标识 ──────────────────────────────────────────────────────────────────
-VERSION = "v9.0"
+VERSION = "v10.0"
 RUN_ID  = f"{VERSION}_{time.strftime('%Y%m%d_%H%M%S')}_{LLM_PROVIDER}"
 
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, "sc_llm_os_results", RUN_ID)
@@ -126,11 +134,15 @@ _setup_matplotlib_fonts()
 
 # ── 缓存存取函数 ──────────────────────────────────────────────────────────────
 
-def load_cache(instance_name: str) -> dict:
-    cache_path = os.path.join(
+def _cache_path(instance_name: str) -> str:
+    return os.path.join(
         SCRIPT_DIR,
         f".cache_tsp_{instance_name}_opt2_{USE_TWO_OPT}_{OPERATOR_VERSION}_{LLM_TRIGGER_ONLY_ON_STAGNATION}.json",
     )
+
+
+def load_cache(instance_name: str) -> dict:
+    cache_path = _cache_path(instance_name)
     if os.path.exists(cache_path):
         try:
             with open(cache_path, "r", encoding="utf-8") as f:
@@ -140,9 +152,6 @@ def load_cache(instance_name: str) -> dict:
     return {}
 
 def save_cache(instance_name: str, cache_data: dict):
-    cache_path = os.path.join(
-        SCRIPT_DIR,
-        f".cache_tsp_{instance_name}_opt2_{USE_TWO_OPT}_{OPERATOR_VERSION}.json",
-    )
+    cache_path = _cache_path(instance_name)
     with open(cache_path, "w", encoding="utf-8") as f:
         json.dump(cache_data, f, ensure_ascii=False, indent=2)

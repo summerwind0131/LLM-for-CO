@@ -36,9 +36,12 @@ def run_significance_tests(final_results: dict) -> dict:
         return test_results
 
     sc_data = np.array(final_results["sc_llm_os"])
-    for competitor in ["baseline", "traditional_alns"]:
+    for competitor in [s for s in STRATEGIES if s != "sc_llm_os"]:
         if competitor in final_results and len(final_results[competitor]) > 0:
             comp_data = np.array(final_results[competitor])
+            if len(comp_data) != len(sc_data):
+                print(f"   ⚠️  Skip Wilcoxon for {competitor}: sample size mismatch")
+                continue
             try:
                 # 如果完全一样，stats.wilcoxon 会报错，特殊处理
                 if np.all(sc_data == comp_data):
@@ -64,6 +67,7 @@ def save_results(
     num_iterations: int,
     stagnation_reset_threshold: int,
     LLM_PROVIDER: str,
+    decision_logs_all: dict = None,
 ):
     payload = {
         "instance": instance_name,
@@ -98,6 +102,13 @@ def save_results(
         },
         "llm_logs": {str(k): v for k, v in llm_logs_all.items()},
     }
+
+    if decision_logs_all is not None:
+        payload["decision_logs"] = {
+            strategy: {str(seed): log for seed, log in seed_logs.items()}
+            for strategy, seed_logs in decision_logs_all.items()
+            if seed_logs
+        }
 
     for strategy in STRATEGIES:
         data = final_results.get(strategy, [])

@@ -23,18 +23,18 @@ from .solver import run_solver
 
 def _worker_non_llm(args: tuple) -> tuple:
     """
-    进程池工作函数（仅供 baseline / traditional_alns 使用）。
+    Process-pool worker for strategies that do not call external APIs.
     顶层函数定义保证 Windows 下 spawn 模式可正确序列化。
     """
     instance, nodes, distances, strategy, solver_seed, orig_seed, initial_route = args
-    history, best_dist, best_route, _, _ = run_solver(
+    history, best_dist, best_route, decision_log, has_dirty = run_solver(
         nodes         = nodes,
         distances     = distances,
         initial_route = initial_route,
         strategy      = strategy,
         solver_seed   = solver_seed,
     )
-    return strategy, orig_seed, history, best_dist, best_route
+    return strategy, orig_seed, history, best_dist, best_route, decision_log, has_dirty
 
 
 def run_non_llm_parallel(
@@ -49,7 +49,13 @@ def run_non_llm_parallel(
     [EXP-6] 用字典按 seed 存储结果，最后按 SEEDS 顺序组装，
     消除 as_completed 乱序导致的种子错位问题。
     """
-    seed_offset = {"baseline": 0, "traditional_alns": 1000}
+    seed_offset = {
+        "baseline": 0,
+        "traditional_alns": 1000,
+        "sc_rule_os": 3000,
+        "sc_random_os": 4000,
+        "sc_fallback_os": 5000,
+    }
 
     store = {s: {} for s in NON_LLM_STRATEGIES}
     tasks = []
@@ -61,7 +67,12 @@ def run_non_llm_parallel(
             s_str = str(seed)
             if s_str in cache_data[strategy]:
                 c = cache_data[strategy][s_str]
-                store[strategy][seed] = (c["history"], c["best_dist"], c["best_route"])
+                store[strategy][seed] = (
+                    c["history"],
+                    c["best_dist"],
+                    c["best_route"],
+                    c.get("decision_log", []),
+                )
                 print(f"   ⏭️ [{strategy:<18}] seed={seed} (缓存命中)")
             else:
                 tasks.append((instance, nodes, distances,
@@ -77,8 +88,21 @@ def run_non_llm_parallel(
             futures = {executor.submit(_worker_non_llm, t): t for t in tasks}
             for future in as_completed(futures):
                 try:
-                    strategy, orig_seed, history, best_dist, best_route = future.result()
-                    store[strategy][orig_seed] = (history, best_dist, best_route)
+                    (
+                        strategy,
+                        orig_seed,
+                        history,
+                        best_dist,
+                        best_route,
+                        decision_log,
+                        has_dirty,
+                    ) = future.result()
+                    store[strategy][orig_seed] = (
+                        history,
+                        best_dist,
+                        best_route,
+                        decision_log,
+                    )
                     print(f"   ✅ [{strategy:<18}] seed={orig_seed} "
                           f"完成，最优距离: {best_dist:.1f}")
 
@@ -86,7 +110,9 @@ def run_non_llm_parallel(
                     cache_data[strategy][str(orig_seed)] = {
                         "history": history,
                         "best_dist": best_dist,
-                        "best_route": best_route
+                        "best_route": best_route,
+                        "decision_log": decision_log,
+                        "has_dirty": has_dirty,
                     }
                     save_cache(instance, cache_data)
                 except Exception as e:
@@ -103,6 +129,10 @@ def run_non_llm_parallel(
                           if s in store[strategy]],
             "routes":    [store[strategy][s][2] for s in seeds
                           if s in store[strategy]],
+            "decision_logs": {
+                s: store[strategy][s][3] for s in seeds
+                if s in store[strategy]
+            },
         }
     return results
 

@@ -119,6 +119,7 @@ def main():
         final_results = {s: [] for s in STRATEGIES}
         all_histories = {s: [] for s in STRATEGIES}
         all_routes    = {s: [] for s in STRATEGIES}
+        all_decision_logs = {s: {} for s in STRATEGIES}
 
         # ── 第一阶段：并行跑非LLM策略 ───────────────────────────────────────
         print(f"\n📌 第一阶段：并行运行 {NON_LLM_STRATEGIES}...")
@@ -134,6 +135,7 @@ def main():
             final_results[strategy] = non_llm_res[strategy]["bests"]
             all_histories[strategy] = non_llm_res[strategy]["histories"]
             all_routes[strategy]    = non_llm_res[strategy]["routes"]
+            all_decision_logs[strategy] = non_llm_res[strategy].get("decision_logs", {})
 
         # ── 第二阶段：串行跑 SC-LLM-OS ──────────────────────────────────────
         print(f"\n📌 第二阶段：串行运行 SC-LLM-OS...")
@@ -152,6 +154,7 @@ def main():
         all_routes["sc_llm_os"]               = llm_res["routes"]
         dirty_seeds                           = llm_res["dirty_seeds"]
         llm_logs_all                          = llm_res["llm_logs"]
+        all_decision_logs["sc_llm_os"]        = llm_logs_all
 
         # ── 独立存储每个种子的解 ────────────────────────────────────────────
         for i, seed in enumerate(SEEDS):
@@ -188,6 +191,7 @@ def main():
             num_iterations= NUM_ITERATIONS,
             stagnation_reset_threshold= STAGNATION_RESET_THRESHOLD,
             LLM_PROVIDER = LLM_PROVIDER,
+            decision_logs_all = all_decision_logs,
         )
 
         # ── 可视化 ──────────────────────────────────────────────────────────

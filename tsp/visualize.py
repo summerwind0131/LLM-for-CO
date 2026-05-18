@@ -38,6 +38,9 @@ def plot_results(
     style_map = {
         "baseline":         ("gray",       "--",  "Baseline (Uniform)"),
         "traditional_alns": ("darkorange", "-.",  "Traditional ALNS"),
+        "sc_rule_os":       ("seagreen",   ":",   "SC Rule OS"),
+        "sc_random_os":     ("mediumpurple","--", "SC Random OS"),
+        "sc_fallback_os":   ("crimson",    "-.",  "SC Fallback OS"),
         "sc_llm_os":        ("royalblue",  "-",   "SC-LLM-OS (Ours)"),
     }
 
@@ -50,7 +53,7 @@ def plot_results(
         arr        = np.array(hists)
         mean_curve = arr.mean(axis=0)
         std_curve  = arr.std(axis=0)
-        color, ls, label = style_map[strategy]
+        color, ls, label = style_map.get(strategy, ("black", "-", strategy))
         x        = np.arange(len(mean_curve))
         best_val = float(np.min(arr))
         ax.plot(mean_curve,
@@ -92,9 +95,10 @@ def plot_results(
 
     # ── 右图：箱线图 ────────────────────────────────────────────────────────
     ax2        = axes[1]
-    box_data   = [final_results.get(s, []) for s in STRATEGIES]
-    box_labels = ["Baseline", "Trad-ALNS", "SC-LLM-OS"]
-    colors_box = ["gray", "darkorange", "royalblue"]
+    box_strategies = [s for s in STRATEGIES if final_results.get(s, [])]
+    box_data   = [final_results.get(s, []) for s in box_strategies]
+    box_labels = [style_map.get(s, ("black", "-", s))[2] for s in box_strategies]
+    colors_box = [style_map.get(s, ("black", "-", s))[0] for s in box_strategies]
 
     bp = ax2.boxplot(
         box_data,
@@ -110,7 +114,7 @@ def plot_results(
         patch.set_facecolor(color)
         patch.set_alpha(0.65)
 
-    for i, (strategy, color) in enumerate(zip(STRATEGIES, colors_box), start=1):
+    for i, (strategy, color) in enumerate(zip(box_strategies, colors_box), start=1):
         data = final_results.get(strategy, [])
         if data:
             mv = float(np.mean(data))

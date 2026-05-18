@@ -59,6 +59,136 @@ def _adaptive_weights(current_weights: dict, op_stats: dict) -> dict:
     return _normalize_weights(updated)
 
 
+SC_DECISION_STRATEGIES = (
+    "sc_rule_os",
+    "sc_random_os",
+    "sc_fallback_os",
+    "sc_llm_os",
+)
+
+SC_MODES = ("exploit", "explore_topology", "explore_global")
+
+
+def _structural_anomaly_ratio(route: list, distances: np.ndarray) -> float:
+    if not route:
+        return 0.0
+    n_route = len(route)
+    edges = np.array(
+        [distances[route[i]][route[(i + 1) % n_route]] for i in range(n_route)],
+        dtype=float,
+    )
+    threshold = float(np.mean(edges) + np.std(edges))
+    return float(np.mean(edges > threshold))
+
+
+def _rule_decision(
+    route: list,
+    distances: np.ndarray,
+    stagnation_counter: int,
+    phase_distance_drop: float,
+) -> dict:
+    anomaly = _structural_anomaly_ratio(route, distances)
+
+    if phase_distance_drop == 0 and stagnation_counter > 15:
+        mode, destroy_focus, repair_focus = (
+            "explore_global",
+            "random",
+            "random_order",
+        )
+        reason = "rule: zero phase drop and deep stagnation -> global perturbation"
+    elif anomaly >= 0.12:
+        mode, destroy_focus, repair_focus = (
+            "explore_topology",
+            "long_edge",
+            "regret2",
+        )
+        reason = f"rule: anomaly={anomaly:.3f} -> topology repair"
+    elif phase_distance_drop > 0 and stagnation_counter <= 5:
+        mode, destroy_focus, repair_focus = ("exploit", "worst", "greedy")
+        reason = "rule: improving phase with low stagnation -> exploit"
+    elif stagnation_counter > 10 or phase_distance_drop <= 0:
+        mode, destroy_focus, repair_focus = (
+            "explore_global",
+            "multi_segment",
+            "farthest",
+        )
+        reason = "rule: weak progress or stagnation -> stronger exploration"
+    else:
+        mode, destroy_focus, repair_focus = (
+            "explore_topology",
+            "segment",
+            "farthest",
+        )
+        reason = "rule: moderate stagnation -> structured perturbation"
+
+    return {
+        "reasoning": reason,
+        "mode": mode,
+        "destroy_focus": destroy_focus,
+        "repair_focus": repair_focus,
+        "is_fallback": False,
+    }
+
+
+def _random_decision() -> dict:
+    return {
+        "reasoning": "random ablation: sampled mode and operator focus",
+        "mode": random.choice(SC_MODES),
+        "destroy_focus": random.choice(DESTROY_OPS),
+        "repair_focus": random.choice(REPAIR_OPS),
+        "is_fallback": False,
+    }
+
+
+def _fallback_ablation_decision() -> dict:
+    return {
+        "reasoning": "fallback ablation: fixed explore_global/random/random_order",
+        "mode": "explore_global",
+        "destroy_focus": "random",
+        "repair_focus": "random_order",
+        "is_fallback": False,
+    }
+
+
+def _decision_for_strategy(
+    strategy: str,
+    current_iter: int,
+    num_iterations: int,
+    stagnation_counter: int,
+    route: list,
+    distances: np.ndarray,
+    destroy_stats: dict,
+    repair_stats: dict,
+    phase_distance_drop: float,
+    best_distance: float,
+) -> dict:
+    if strategy == "sc_llm_os":
+        meta_json = state_to_meta_json(
+            current_iter=current_iter,
+            num_iterations=num_iterations,
+            stagnation=stagnation_counter,
+            route=route,
+            distances=distances,
+            destroy_stats=destroy_stats,
+            repair_stats=repair_stats,
+            phase_distance_drop=phase_distance_drop,
+            best_distance=best_distance,
+        )
+        return ask_llm_for_mode(meta_json)
+    if strategy == "sc_rule_os":
+        return _rule_decision(
+            route,
+            distances,
+            stagnation_counter,
+            phase_distance_drop,
+        )
+    if strategy == "sc_random_os":
+        return _random_decision()
+    if strategy == "sc_fallback_os":
+        return _fallback_ablation_decision()
+    raise ValueError(f"Unknown SC decision strategy: {strategy}")
+
+
 def _llm_biased_weights(
     base_probs: dict,
     mode: str,
@@ -90,7 +220,7 @@ def run_solver(
     solver_seed:   int = 42,
 ) -> tuple:
     """
-    统一求解器，支持三种策略：baseline / traditional_alns / sc_llm_os。
+    Unified solver for baseline, ALNS, SC ablations, and SC-LLM-OS.
 
     返回: (distance_history, best_distance, llm_log, has_dirty_data)
     """
@@ -162,7 +292,7 @@ def run_solver(
 
         # ── 阶段性策略调控 ────────────────────────────────────────────────────
         emergency_trigger = (
-            strategy == "sc_llm_os"
+            strategy in SC_DECISION_STRATEGIES
             and stagnation_counter >= EMERGENCY_STAGNATION
             and (iteration - last_trigger_iter) >= 30
         )
@@ -170,7 +300,7 @@ def run_solver(
         # 触发检测：如果设置了"仅在停滞(应急)时触发 LLM"，则忽略固定周期的那部分判断（对于 sc_llm_os 而言），仅依靠 emergency_trigger。
         # 考虑到 baseline 和 traditional_alns 依然需要按固定周期演算统计，做区分控制。
         is_trigger_time = False
-        if strategy == "sc_llm_os" and LLM_TRIGGER_ONLY_ON_STAGNATION:
+        if strategy in SC_DECISION_STRATEGIES and LLM_TRIGGER_ONLY_ON_STAGNATION:
             is_trigger_time = emergency_trigger
         else:
             is_trigger_time = (iteration % llm_trigger_interval == 0) or emergency_trigger
@@ -194,19 +324,19 @@ def run_solver(
                 repair_weights  = _adaptive_weights(repair_weights, repair_stats)
 
             # ── SC-LLM-OS：LLM宏观指令 + 偏置调权 ───────────────────────────
-            elif strategy == "sc_llm_os":
-                meta_json = state_to_meta_json(
-                    current_iter        = iteration,
-                    num_iterations      = NUM_ITERATIONS,
-                    stagnation          = stagnation_counter,
-                    route               = current_route,
-                    distances           = distances,
-                    destroy_stats       = destroy_stats,
-                    repair_stats        = repair_stats,
-                    phase_distance_drop = phase_distance_drop,
-                    best_distance       = best_distance,
+            elif strategy in SC_DECISION_STRATEGIES:
+                decision = _decision_for_strategy(
+                    strategy=strategy,
+                    current_iter=iteration,
+                    num_iterations=NUM_ITERATIONS,
+                    stagnation_counter=stagnation_counter,
+                    route=current_route,
+                    distances=distances,
+                    destroy_stats=destroy_stats,
+                    repair_stats=repair_stats,
+                    phase_distance_drop=phase_distance_drop,
+                    best_distance=best_distance,
                 )
-                decision      = ask_llm_for_mode(meta_json)
                 mode          = decision.get("mode", "explore_global")
                 destroy_focus = decision.get("destroy_focus", "random")
                 repair_focus  = decision.get("repair_focus", "random_order")
@@ -221,9 +351,12 @@ def run_solver(
                         repair_focus  = "regret2" if repair_focus == "greedy" else repair_focus
                         print(f"   [🛡️  零改善覆盖] exploit → explore_topology "
                               f"(phase_drop=0, stagnation={stagnation_counter})")
-                    decision["reasoning"] += " [覆盖：整阶段零改善，禁止exploit]"
+                    decision["reasoning"] = (
+                        decision.get("reasoning", "")
+                        + " [override: zero phase drop, forbid exploit]"
+                    )
 
-                if decision.get("is_fallback", False):
+                if strategy == "sc_llm_os" and decision.get("is_fallback", False):
                     has_dirty_data = True
                     print(f"   ⚠️  [iter={iteration}] Fallback，本seed已标记脏数据")
 
@@ -285,6 +418,7 @@ def run_solver(
                       f"{ {k: f'{v:.3f}' for k, v in repair_weights.items()} }")
 
                 llm_log.append({
+                    "strategy":        strategy,
                     "iteration":       iteration,
                     "stagnation":      stagnation_counter,
                     "mode":            mode,
@@ -371,7 +505,7 @@ def run_solver(
 
         # 精英解重启：长期无改善时主动逃脱
         if (USE_ELITE_RESTART
-                and strategy == "sc_llm_os"
+                and strategy in SC_DECISION_STRATEGIES
                 and no_improve_since_elite >= ELITE_RESTART_THRESHOLD):
 
             # 破坏规模随重启次数递增（越来越激进）
