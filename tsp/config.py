@@ -78,6 +78,8 @@ MAX_TWO_OPT_PASSES        = 2
 EPSILON  = 1e-8
 MIN_PROB = 0.1
 ALNS_RHO = 0.5
+SC_ADAPTIVE_WEIGHT = 0.7
+SC_LLM_WEIGHT = 0.3
 
 # ── 固定基准概率（SC-LLM-OS偏置起点，消除累积漂移）─────────────────────────
 OPERATOR_VERSION = "ops_v2"
@@ -108,7 +110,7 @@ MAX_PARALLEL_WORKERS = 4
 # ── 输出目录 ──────────────────────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ── 运行标识 ──────────────────────────────────────────────────────────────────
-VERSION = "v10.0"
+VERSION = "v11.0"
 RUN_ID  = f"{VERSION}_{time.strftime('%Y%m%d_%H%M%S')}_{LLM_PROVIDER}"
 
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, "sc_llm_os_results", RUN_ID)

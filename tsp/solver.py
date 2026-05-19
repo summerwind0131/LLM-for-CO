@@ -14,6 +14,8 @@ from .config import (
     EPSILON,
     MIN_PROB,
     ALNS_RHO,
+    SC_ADAPTIVE_WEIGHT,
+    SC_LLM_WEIGHT,
     BASE_PROBS,
     DESTROY_OPS,
     REPAIR_BASE_PROBS,
@@ -212,6 +214,21 @@ def _llm_biased_weights(
     return {op: float(value) for op, value in zip(ops, p)}
 
 
+def _blend_weights(
+    adaptive_weights: dict,
+    llm_weights: dict,
+    adaptive_weight: float = SC_ADAPTIVE_WEIGHT,
+    llm_weight: float = SC_LLM_WEIGHT,
+) -> dict:
+    ops = list(adaptive_weights.keys())
+    blended = {
+        op: adaptive_weight * adaptive_weights[op]
+        + llm_weight * llm_weights.get(op, 0.0)
+        for op in ops
+    }
+    return _normalize_weights(blended)
+
+
 def run_solver(
     nodes:         np.ndarray,
     distances:     np.ndarray,
@@ -397,20 +414,24 @@ def run_solver(
                     },
                 }
 
-                destroy_weights = _llm_biased_weights(
-                    BASE_PROBS,
+                adaptive_destroy = _adaptive_weights(destroy_weights, destroy_stats)
+                adaptive_repair = _adaptive_weights(repair_weights, repair_stats)
+                llm_destroy = _llm_biased_weights(
+                    adaptive_destroy,
                     mode,
                     destroy_focus,
                     destroy_mode_bias,
                     stagnation_counter,
                 )
-                repair_weights = _llm_biased_weights(
-                    REPAIR_BASE_PROBS,
+                llm_repair = _llm_biased_weights(
+                    adaptive_repair,
                     mode,
                     repair_focus,
                     repair_mode_bias,
                     stagnation_counter,
                 )
+                destroy_weights = _blend_weights(adaptive_destroy, llm_destroy)
+                repair_weights = _blend_weights(adaptive_repair, llm_repair)
 
                 print(f"   [⚖️  destroy] "
                       f"{ {k: f'{v:.3f}' for k, v in destroy_weights.items()} }")
