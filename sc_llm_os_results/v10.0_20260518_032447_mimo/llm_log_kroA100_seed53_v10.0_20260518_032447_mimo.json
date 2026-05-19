@@ -1,0 +1,184 @@
+[
+  {
+    "strategy": "sc_llm_os",
+    "iteration": 90,
+    "stagnation": 3,
+    "mode": "exploit",
+    "destroy_focus": "segment",
+    "repair_focus": "greedy",
+    "reasoning": "系统处于早期探索阶段（progress=0.129），best仍在显著下降（phase_distance_drop=3491），且worst、segment、shaw等算子成功率尚可，因此选择开发模式并侧重表现较好的segment算子与稳定的greedy修复。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.3009,
+      "segment": 0.2283,
+      "random": 0.0944,
+      "shaw": 0.1554,
+      "long_edge": 0.1266,
+      "multi_segment": 0.0944
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 22797,
+    "phase_drop": 3491
+  },
+  {
+    "strategy": "sc_llm_os",
+    "iteration": 180,
+    "stagnation": 15,
+    "mode": "exploit",
+    "destroy_focus": "segment",
+    "repair_focus": "greedy",
+    "reasoning": "当前处于早期探索阶段，best仍在下降且stagnation_steps仅为15，segment破坏算子和greedy修复算子均表现活跃且成功率相对较高，适合持续利用局部改良。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.3009,
+      "segment": 0.2283,
+      "random": 0.0944,
+      "shaw": 0.1554,
+      "long_edge": 0.1266,
+      "multi_segment": 0.0944
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 22635,
+    "phase_drop": 162
+  },
+  {
+    "strategy": "sc_llm_os",
+    "iteration": 270,
+    "stagnation": 1,
+    "mode": "exploit",
+    "destroy_focus": "worst",
+    "repair_focus": "regret2",
+    "reasoning": "当前处于mid-exploitation阶段，phase_distance_drop仍有138表明best仍在下降，且worst、long_edge、multi_segment等破坏算子和greedy、regret2等修复算子成功率尚可，适合采用exploit模式进行局部精细改良，重点使用worst算子移除代价贡献最高的节点并配合regret2修复以稳定提升解质量。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.486,
+      "segment": 0.0963,
+      "random": 0.0925,
+      "shaw": 0.1283,
+      "long_edge": 0.1045,
+      "multi_segment": 0.0925
+    },
+    "repair_weights": {
+      "greedy": 0.6508,
+      "farthest": 0.1536,
+      "random_order": 0.0978,
+      "regret2": 0.0978
+    },
+    "best_distance": 22497,
+    "phase_drop": 138
+  },
+  {
+    "strategy": "sc_llm_os",
+    "iteration": 360,
+    "stagnation": 22,
+    "mode": "explore_global",
+    "destroy_focus": "random",
+    "repair_focus": "random_order",
+    "reasoning": "phase_distance_drop=0且stagnation_steps=22，系统深度停滞且多个破坏/修复算子成功率极低，需优先采用explore_global模式配合random破坏和random_order修复以引入最大扰动。 [override: zero phase drop, forbid exploit]",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1588,
+      "segment": 0.15,
+      "random": 0.2491,
+      "shaw": 0.1654,
+      "long_edge": 0.1503,
+      "multi_segment": 0.1264
+    },
+    "repair_weights": {
+      "greedy": 0.3016,
+      "farthest": 0.2565,
+      "random_order": 0.327,
+      "regret2": 0.1149
+    },
+    "best_distance": 22497,
+    "phase_drop": 0
+  },
+  {
+    "strategy": "sc_llm_os",
+    "iteration": 450,
+    "stagnation": 4,
+    "mode": "explore_topology",
+    "destroy_focus": "long_edge",
+    "repair_focus": "regret2",
+    "reasoning": "处于mid-exploitation阶段且phase_distance_drop为正，但long_edge算子成功率最高(0.273)且structural_anomaly_ratio为0.12提示存在拓扑异常，故选择explore_topology模式聚焦长边修复以优化局部结构。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1337,
+      "segment": 0.1604,
+      "random": 0.096,
+      "shaw": 0.1337,
+      "long_edge": 0.3803,
+      "multi_segment": 0.096
+    },
+    "repair_weights": {
+      "greedy": 0.4449,
+      "farthest": 0.2682,
+      "random_order": 0.1192,
+      "regret2": 0.1678
+    },
+    "best_distance": 22043,
+    "phase_drop": 454
+  },
+  {
+    "strategy": "sc_llm_os",
+    "iteration": 540,
+    "stagnation": 2,
+    "mode": "exploit",
+    "destroy_focus": "multi_segment",
+    "repair_focus": "greedy",
+    "reasoning": "当前处于late-convergence阶段且stagnation_steps仅为2，phase_distance_drop为509且multi_segment算子成功率高达0.364，表明系统仍在有效下降，应继续利用最佳算子进行精细改良。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.3396,
+      "segment": 0.1316,
+      "random": 0.0994,
+      "shaw": 0.1753,
+      "long_edge": 0.1428,
+      "multi_segment": 0.1113
+    },
+    "repair_weights": {
+      "greedy": 0.7319,
+      "farthest": 0.0894,
+      "random_order": 0.0894,
+      "regret2": 0.0894
+    },
+    "best_distance": 21534,
+    "phase_drop": 509
+  },
+  {
+    "strategy": "sc_llm_os",
+    "iteration": 630,
+    "stagnation": 3,
+    "mode": "explore_topology",
+    "destroy_focus": "long_edge",
+    "repair_focus": "regret2",
+    "reasoning": "处于后期收敛阶段且phase_distance_drop为50说明仍能改进，但long_edge成功率最高（0.125）且avg_score突出（0.375），表明存在拓扑异常，应优先修复长边问题以提升结构。",
+    "is_fallback": false,
+    "destroy_weights": {
+      "worst": 0.1337,
+      "segment": 0.1604,
+      "random": 0.096,
+      "shaw": 0.1337,
+      "long_edge": 0.3803,
+      "multi_segment": 0.096
+    },
+    "repair_weights": {
+      "greedy": 0.4449,
+      "farthest": 0.2682,
+      "random_order": 0.1192,
+      "regret2": 0.1678
+    },
+    "best_distance": 21484,
+    "phase_drop": 50
+  }
+]
