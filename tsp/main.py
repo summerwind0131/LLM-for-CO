@@ -38,6 +38,8 @@ from .visualize import plot_results, plot_llm_decision_timeline
 
 
 def main():
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
     if LLM_PROVIDER == "gemini":
         if not API_KEY or not API_KEY.strip():
             raise SystemExit(

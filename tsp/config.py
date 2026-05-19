@@ -54,7 +54,7 @@ MIMO_MODEL = os.environ.get("MIMO_MODEL", "mimo-v2.5-pro").strip()
 
 
 # ── 实验规模 ──────────────────────────────────────────────────────────────────
-INSTANCES  = ["berlin52","kroA100","ch150","kroA200","ali535","d657","pr1002"]   # 多个规模用于泛化验证
+INSTANCES  = ["berlin52","kroA100","ch150","kroA200"]   # 多个规模用于泛化验证
 SEEDS      = list(range(42, 72))  # [EXP-13] 30 个连续的整数，验证统计显著性
 STRATEGIES = [
     "baseline",
@@ -71,7 +71,7 @@ STRATEGIES = [
 DESTRUCTION_RATIO         = 0.06   # 动态破坏比例
 USE_TWO_OPT               = False   # [EXP-1] 开启局部搜索
 USE_ELITE_RESTART         = False  # [EXP-12] 精英解重启机制开关（当前停用）
-LLM_TRIGGER_ONLY_ON_STAGNATION = False  # 仅在停滞(应急)时触发 LLM 策略调控，关闭固定周期触发
+LLM_TRIGGER_ONLY_ON_STAGNATION = True  # 仅在停滞(应急)时触发 LLM 策略调控，关闭固定周期触发
 MAX_TWO_OPT_PASSES        = 2
 
 # ── 数值常数 ──────────────────────────────────────────────────────────────────
@@ -114,7 +114,6 @@ VERSION = "v11.0"
 RUN_ID  = f"{VERSION}_{time.strftime('%Y%m%d_%H%M%S')}_{LLM_PROVIDER}"
 
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, "sc_llm_os_results", RUN_ID)
-os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
 # ── matplotlib 中文字体自适应 [EXP-11] ────────────────────────────────────────
@@ -139,7 +138,11 @@ _setup_matplotlib_fonts()
 def _cache_path(instance_name: str) -> str:
     return os.path.join(
         SCRIPT_DIR,
-        f".cache_tsp_{instance_name}_opt2_{USE_TWO_OPT}_{OPERATOR_VERSION}_{LLM_TRIGGER_ONLY_ON_STAGNATION}.json",
+        (
+            f".cache_tsp_{instance_name}_opt2_{USE_TWO_OPT}_{OPERATOR_VERSION}_"
+            f"stagnation_{LLM_TRIGGER_ONLY_ON_STAGNATION}_{VERSION}_"
+            f"blend_{SC_ADAPTIVE_WEIGHT}_{SC_LLM_WEIGHT}.json"
+        ),
     )
 
 

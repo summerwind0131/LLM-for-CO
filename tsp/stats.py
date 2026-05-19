@@ -71,6 +71,8 @@ def save_results(
     LLM_PROVIDER: str,
     decision_logs_all: dict = None,
 ):
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
     payload = {
         "instance": instance_name,
         "seeds":    SEEDS,
